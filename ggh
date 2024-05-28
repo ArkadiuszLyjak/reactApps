@@ -1,0 +1,473 @@
+[33mcommit 8b89ad668a747925ee5c59ad91e7f4a2645ebe44[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: alyjak <alyjak@gmail.com>
+Date:   Tue May 28 13:39:08 2024 +0200
+
+    First commit React App
+
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e118e1d[m
+[1m--- /dev/null[m
+[1m+++ b/.gitignore[m
+[36m@@ -0,0 +1,35 @@[m
+[32m+[m[32m# System plików operacyjnych[m
+[32m+[m[32m.DS_Store[m
+[32m+[m[32mThumbs.db[m
+[32m+[m
+[32m+[m[32m# Logi[m
+[32m+[m[32mnpm-debug.log*[m
+[32m+[m[32myarn-debug.log*[m
+[32m+[m[32myarn-error.log*[m
+[32m+[m
+[32m+[m[32m# Node modules[m
+[32m+[m[32m/node_modules[m
+[32m+[m
+[32m+[m[32m# Pliki zbudowane przez React[m
+[32m+[m[32m/build[m
+[32m+[m
+[32m+[m[32m# Pliki konfiguracyjne edytorów i IDE[m
+[32m+[m[32m.vscode/[m
+[32m+[m[32m*.sublime-project[m
+[32m+[m[32m*.sublime-workspace[m
+[32m+[m
+[32m+[m[32m# Pliki środowiskowe[m
+[32m+[m[32m.env.local[m
+[32m+[m[32m.env.development.local[m
+[32m+[m[32m.env.test.local[m
+[32m+[m[32m.env.production.local[m
+[32m+[m
+[32m+[m[32m# Cache Yarn[m
+[32m+[m[32m.yarn/cache/[m
+[32m+[m[32m.pnp.*[m
+[32m+[m[32m.yarn/unplugged/[m
+[32m+[m[32m.yarn/build-state.yml[m
+[32m+[m[32m.yarn/install-state.gz[m
+[32m+[m[32m.yarn/versions/[m
+[32m+[m
+[32m+[m[32mnode_modules[m
+\ No newline at end of file[m
+[1mdiff --git a/.idea/.gitignore b/.idea/.gitignore[m
+[1mnew file mode 100644[m
+[1mindex 0000000..13566b8[m
+[1m--- /dev/null[m
+[1m+++ b/.idea/.gitignore[m
+[36m@@ -0,0 +1,8 @@[m
+[32m+[m[32m# Default ignored files[m
+[32m+[m[32m/shelf/[m
+[32m+[m[32m/workspace.xml[m
+[32m+[m[32m# Editor-based HTTP Client requests[m
+[32m+[m[32m/httpRequests/[m
+[32m+[m[32m# Datasource local storage ignored files[m
+[32m+[m[32m/dataSources/[m
+[32m+[m[32m/dataSources.local.xml[m
+[1mdiff --git a/.idea/inspectionProfiles/Project_Default.xml b/.idea/inspectionProfiles/Project_Default.xml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..718c338[m
+[1m--- /dev/null[m
+[1m+++ b/.idea/inspectionProfiles/Project_Default.xml[m
+[36m@@ -0,0 +1,37 @@[m
+[32m+[m[32m<component name="InspectionProjectProfileManager">[m
+[32m+[m[32m  <profile version="1.0">[m
+[32m+[m[32m    <option name="myName" value="Project Default" />[m
+[32m+[m[32m    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">[m
+[32m+[m[32m      <option name="ignoredErrors">[m
+[32m+[m[32m        <list>[m
+[32m+[m[32m          <option value="W292" />[m
+[32m+[m[32m          <option value="E303" />[m
+[32m+[m[32m        </list>[m
+[32m+[m[32m      </option>[m
+[32m+[m[32m    </inspection_tool>[m
+[32m+[m[32m    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">[m
+[32m+[m[32m      <option name="ignoredErrors">[m
+[32m+[m[32m        <list>[m
+[32m+[m[32m          <option value="N803" />[m
+[32m+[m[32m          <option value="N802" />[m
+[32m+[m[32m          <option value="N806" />[m
+[32m+[m[32m          <option value="N801" />[m
+[32m+[m[32m        </list>[m
+[32m+[m[32m      </option>[m
+[32m+[m[32m      <option name="ignoredBaseClasses">[m
+[32m+[m[32m        <list>[m
+[32m+[m[32m          <option value="unittest.TestCase" />[m
+[32m+[m[32m          <option value="unittest.case.TestCase" />[m
+[32m+[m[32m          <option value="object" />[m
+[32m+[m[32m        </list>[m
+[32m+[m[32m      </option>[m
+[32m+[m[32m    </inspection_tool>[m
+[32m+[m[32m    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">[m
+[32m+[m[32m      <option name="ignoredIdentifiers">[m
+[32m+[m[32m        <list>[m
+[32m+[m[32m          <option value="python_kurs.package_example" />[m
+[32m+[m[32m        </list>[m
+[32m+[m[32m      </option>[m
+[32m+[m[32m    </inspection_tool>[m
+[32m+[m[32m  </profile>[m
+[32m+[m[32m</component>[m
+\ No newline at end of file[m
+[1mdiff --git a/.idea/inspectionProfiles/profiles_settings.xml b/.idea/inspectionProfiles/profiles_settings.xml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..105ce2d[m
+[1m--- /dev/null[m
+[1m+++ b/.idea/inspectionProfiles/profiles_settings.xml[m
+[36m@@ -0,0 +1,6 @@[m
+[32m+[m[32m<component name="InspectionProjectProfileManager">[m
+[32m+[m[32m  <settings>[m
+[32m+[m[32m    <option name="USE_PROJECT_PROFILE" value="false" />[m
+[32m+[m[32m    <version value="1.0" />[m
+[32m+[m[32m  </settings>[m
+[32m+[m[32m</component>[m
+\ No newline at end of file[m
+[1mdiff --git a/.idea/kurs-react.iml b/.idea/kurs-react.iml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d0876a7[m
+[1m--- /dev/null[m
+[1m+++ b/.idea/kurs-react.iml[m
+[36m@@ -0,0 +1,8 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8"?>[m
+[32m+[m[32m<module type="PYTHON_MODULE" version="4">[m
+[32m+[m[32m  <component name="NewModuleRootManager">[m
+[32m+[m[32m    <content url="file://$MODULE_DIR$" />[m
+[32m+[m[32m    <orderEntry type="inheritedJdk" />[m
+[32m+[m[32m    <orderEntry type="sourceFolder" forTests="false" />[m
+[32m+[m[32m  </component>[m
+[32m+[m[32m</module>[m
+\ No newline at end of file[m
+[1mdiff --git a/.idea/misc.xml b/.idea/misc.xml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..a44514f[m
+[1m--- /dev/null[m
+[1m+++ b/.idea/misc.xml[m
+[36m@@ -0,0 +1,7 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8"?>[m
+[32m+[m[32m<project version="4">[m
+[32m+[m[32m  <component name="Black">[m
+[32m+[m[32m    <option name="sdkName" value="Python 3.11 (pythonProject)" />[m
+[32m+[m[32m  </component>[m
+[32m+[m[32m  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11 (pythonProject)" project-jdk-type="Python SDK" />[m
+[32m+[m[32m</project>[m
+\ No newline at end of file[m
+[1mdiff --git a/.idea/modules.xml b/.idea/modules.xml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..403b8b0[m
+[1m--- /dev/null[m
+[1m+++ b/.idea/modules.xml[m
+[36m@@ -0,0 +1,8 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8"?>[m
+[32m+[m[32m<project version="4">[m
+[32m+[m[32m  <component name="ProjectModuleManager">[m
+[32m+[m[32m    <modules>[m
+[32m+[m[32m      <module fileurl="file://$PROJECT_DIR$/.idea/kurs-react.iml" filepath="$PROJECT_DIR$/.idea/kurs-react.iml" />[m
+[32m+[m[32m    </modules>[m
+[32m+[m[32m  </component>[m
+[32m+[m[32m</project>[m
+\ No newline at end of file[m
+[1mdiff --git a/.idea/vcs.xml b/.idea/vcs.xml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..6c0b863[m
+[1m--- /dev/null[m
+[1m+++ b/.idea/vcs.xml[m
+[36m@@ -0,0 +1,6 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8"?>[m
+[32m+[m[32m<project version="4">[m
+[32m+[m[32m  <component name="VcsDirectoryMappings">[m
+[32m+[m[32m    <mapping directory="$PROJECT_DIR$/.." vcs="Git" />[m
+[32m+[m[32m  </component>[m
+[32m+[m[32m</project>[m
+\ No newline at end of file[m
+[1mdiff --git a/App.js b/App.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..b54351e[m
+[1m--- /dev/null[m
+[1m+++ b/App.js[m
+[36m@@ -0,0 +1,228 @@[m
+[32m+[m[32mconst header = <h1 className='className'>Witaj</h1>;[m
+[32m+[m
+[32m+[m[32mconst classBig = "big";[m
+[32m+[m
+[32m+[m[32mconst main = ([m
+[32m+[m[32m    <div>[m
+[32m+[m[32m        <h1 className='red'>Pierwszy artykół</h1>[m
+[32m+[m[32m        <p>[m
+[32m+[m[32m            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit repellat[m
+[32m+[m[32m            deserunt, sequi quia voluptatum quis adipisci iure, eius maxime maiores[m
+[32m+[m[32m            voluptatem ad soluta veritatis tenetur! Odio, facere temporibus. Repellat,[m
+[32m+[m[32m            ipsa?[m
+[32m+[m[32m        </p>[m
+[32m+[m[32m    </div>[m
+[32m+[m[32m);[m
+[32m+[m
+[32m+[m
+[32m+[m[32mclass City {[m
+[32m+[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mconst Warsaw = new City()[m
+[32m+[m[32mconsole.log(Warsaw)[m
+[32m+[m
+[32m+[m[32m// const fn = (item1, item2)=> {[m
+[32m+[m[32m// 	console.log(`Podany argument to: ${item1} oraz ${item2}`)[m
+[32m+[m[32m// }[m
+[32m+[m[32m//[m
+[32m+[m[32m// fn("hej", "hek")[m
+[32m+[m
+[32m+[m[32mconst user = [2, 3, 4, 5][m
+[32m+[m[32m// const users_joined = user.join(" ")[m
+[32m+[m[32m// console.log(users_joined)[m
+[32m+[m
+[32m+[m[32m// const doubled_numbers = user.forEach(num => console.log(`${num}, zdublowane: ${num*2})`);[m
+[32m+[m[32m// console.log(doubled_numbers)[m
+[32m+[m[32m// console.log(user.forEach(num => console.log(`${num}, zdublowane: ${num*2})`))[m
+[32m+[m
+[32m+[m[32m// const numbers = [1, 2, 3, 4, 5]; // Przykładowa tablica liczb[m
+[32m+[m[32m//[m
+[32m+[m[32m// numbers.forEach(num => {[m
+[32m+[m[32m//     console.log(`${num}, zdublowane: ${num * 2}`);[m
+[32m+[m[32m// });[m
+[32m+[m[32m//[m
+[32m+[m[32m// console.log(numbers);[m
+[32m+[m
+[32m+[m
+[32m+[m[32m// function isString(value) {[m
+[32m+[m[32m//     return typeof value === "string" || value instanceof String;[m
+[32m+[m[32m// }[m
+[32m+[m
+[32m+[m[32m// function isString(value) {[m
+[32m+[m[32m// 	return typeof value === "string" || value instanceof String;[m
+[32m+[m[32m// }[m
+[32m+[m
+[32m+[m[32m// const users = ["adam", new  String("Bogdan"), "czarek", "darek"];[m
+[32m+[m
+[32m+[m[32m// const lowercaseUsers = users.map(user => {[m
+[32m+[m[32m// 	if (isString(user)) {[m
+[32m+[m[32m// 		return user.toLowerCase();[m
+[32m+[m[32m// 	} else {[m
+[32m+[m[32m// 		// Obsługa przypadku, gdy element nie jest łańcuchem znaków[m
+[32m+[m[32m// 		return user;[m
+[32m+[m[32m// 	}[m
+[32m+[m[32m// });[m
+[32m+[m[32m//[m
+[32m+[m[32m// console.log(lowercaseUsers);[m
+[32m+[m[32m//[m
+[32m+[m[32m// const new_table = [...users, user][m
+[32m+[m
+[32m+[m[32m// const big_letter = users.map(user => user[0].toUpperCase())[m
+[32m+[m[32m// console.log(big_letter)[m
+[32m+[m
+[32m+[m[32m// const users = ["Alice", "Bob", new String("Charlie")]; // Tablica zawierająca stringi i obiekt String[m
+[32m+[m[32m//[m
+[32m+[m[32m// // Używamy map do przekształcenia każdego elementu na jego długość[m
+[32m+[m[32m// const lengths = users.map([m
+[32m+[m[32m// 	(user, index, array) => {[m
+[32m+[m[32m//     console.log(`Index: ${index}, Element: ${user}, Length: ${user.length}, ${array[index]}`);[m
+[32m+[m[32m//     return user.length;[m
+[32m+[m[32m// });[m
+[32m+[m[32m//[m
+[32m+[m[32m// console.log(lengths); // Wyświetli [5, 3, 7][m
+[32m+[m
+[32m+[m
+[32m+[m[32m// const user_ages = [21, 22, 34, 56, 78];[m
+[32m+[m[32m//[m
+[32m+[m[32m// const nums_greater_than_22 = user_ages.filter((num, index, talica) => {[m
+[32m+[m[32m// 	return num >= 23;[m
+[32m+[m[32m// });[m
+[32m+[m[32m//[m
+[32m+[m[32m// console.log(nums_greater_than_22)[m
+[32m+[m
+[32m+[m
+[32m+[m[32m// const people = [[m
+[32m+[m[32m//     {"name": "Alice", "age": 27},[m
+[32m+[m[32m//     {"name": "Bob", "age": 30},[m
+[32m+[m[32m//     {"name": "Charlie", "age": 12},[m
+[32m+[m[32m//     {"name": "Diana", "age": 28},[m
+[32m+[m[32m//     {"name": "Eve", "age": 35},[m
+[32m+[m[32m//     {"name": "Frank", "age": 40},[m
+[32m+[m[32m//     {"name": "Grace", "age": 32},[m
+[32m+[m[32m//     {"name": "Hank", "age": 27},[m
+[32m+[m[32m//     {"name": "Ivy", "age": 26},[m
+[32m+[m[32m//     {"name": "Jack", "age": 16}[m
+[32m+[m[32m// ];[m
+[32m+[m
+[32m+[m[32m// console.log(people);[m
+[32m+[m
+[32m+[m[32m// const isUserAdult = people.findIndex(person  => person.age < 18);[m
+[32m+[m[32m// console.log(isUserAdult)[m
+[32m+[m
+[32m+[m[32m// const underAgedPeople = people.filter((people, index, array) => {[m
+[32m+[m[32m//     return people.age < 18;[m
+[32m+[m[32m// });[m
+[32m+[m
+[32m+[m[32m// console.log(underAgedPeople)[m
+[32m+[m
+[32m+[m[32m// const alice = people.find((element, index, array) => {[m
+[32m+[m[32m//     return element.name === "Alice";[m
+[32m+[m[32m// });[m
+[32m+[m
+[32m+[m[32m// console.log(alice)[m
+[32m+[m[32m// const alice = people.findIndex((element, index, array) => {[m
+[32m+[m[32m//     return element.name === "Alice";[m
+[32m+[m[32m// });[m
+[32m+[m[32m//[m
+[32m+[m[32m// console.log(alice)[m
+[32m+[m
+[32m+[m[32m// user_ages.forEach((value, index, array) => {[m
+[32m+[m[32m// console.log(value+10, index, array)[m
+[32m+[m[32m// });[m
+[32m+[m
+[32m+[m[32m// const age_doubled = user_ages.map((value, index, array) => {[m
+[32m+[m[32m//     console.log(`${value + 1}, ${index}, ${array[index]}`);[m
+[32m+[m[32m//     return value * 2; // Zwracamy zdublowaną wartość[m
+[32m+[m[32m// });[m
+[32m+[m[32m//[m
+[32m+[m[32m// console.log(age_doubled); // Wyświetli [42, 44, 68, 112, 156][m
+[32m+[m
+[32m+[m
+[32m+[m[32m// const new_letter_upper_case = users.map(elem => elem[0].toUpperCase())[m
+[32m+[m[32m// const new_letter_upper_case = users_joined.map(elem => elem[0].toUpperCase())[m
+[32m+[m[32m// console.log(new_letter_upper_case)[m
+[32m+[m
+[32m+[m[32m// console.log(typeof "Dupa")[m
+[32m+[m[32m// console.log("Dupa" instanceof String)[m
+[32m+[m[32m// const dupa = new String("Dupa")[m
+[32m+[m[32m// console.log(dupa instanceof String)[m
+[32m+[m
+[32m+[m
+[32m+[m[32m// console.log(isString("Dupa")); // true[m
+[32m+[m[32m// console.log(isString(new String("Dupa"))); // true[m
+[32m+[m[32m// console.log(isString(42)); // false[m
+[32m+[m[32m// console.log(isString({})); // false[m
+[32m+[m
+[32m+[m
+[32m+[m[32m// console.log(typeof users);[m
+[32m+[m[32m// console.log(typeof new_table);[m
+[32m+[m[32m// console.log(typeof 42); // "number"[m
+[32m+[m[32m// console.log(typeof "Hello, world!"); // "string"[m
+[32m+[m[32m// console.log(typeof true); // "boolean"[m
+[32m+[m[32m// console.log(typeof undefined); // "undefined"[m
+[32m+[m[32m// console.log(typeof { name: "Alice" }); // "object"[m
+[32m+[m[32m// console.log(typeof null); // "object" (jest to specyficzny przypadek w JavaScript)[m
+[32m+[m[32m// console.log(typeof function() {}); // "function"[m
+[32m+[m[32m// console.log(typeof Symbol()); // "symbol"[m
+[32m+[m[32m// console.log(typeof BigInt(123)); // "bigint"[m
+[32m+[m
+[32m+[m[32m// console.log([] instanceof Array); // true[m
+[32m+[m[32m// console.log({} instanceof Object); // true[m
+[32m+[m[32m// console.log(function() {} instanceof Function); // true[m
+[32m+[m[32m// console.log(new Date() instanceof Date); // true[m
+[32m+[m
+[32m+[m[32m// console.log(Array.isArray([])); // true[m
+[32m+[m[32m// console.log(Array.isArray({})); // false[m
+[32m+[m
+[32m+[m[32m// console.log(Object.prototype.toString.call([])); // "[object Array]"[m
+[32m+[m[32m// console.log(Object.prototype.toString.call({})); // "[object Object]"[m
+[32m+[m[32m// console.log(Object.prototype.toString.call(new Date())); // "[object Date]"[m
+[32m+[m[32m// console.log(Object.prototype.toString.call(/regex/)); // "[object RegExp]"[m
+[32m+[m[32m// console.log(Object.prototype.toString.call(null)); // "[object Null]"[m
+[32m+[m[32m// console.log(Object.prototype.toString.call(undefined)); // "[object Undefined]"[m
+[32m+[m[32m// console.log(Object.prototype.toString.call(123)); // "[object Number]"[m
+[32m+[m[32m// console.log(Object.prototype.toString.call("abc")); // "[object String]"[m
+[32m+[m[32m// console.log(Object.prototype.toString.call(true)); // "[object Boolean]"[m
+[32m+[m[32m// console.log(Object.prototype.toString.call(Symbol())); // "[object Symbol]"[m
+[32m+[m[32m// console.log(Object.prototype.toString.call(BigInt(123))); // "[object BigInt]"[m
+[32m+[m
+[32m+[m[32m// function getType(variable) {[m
+[32m+[m[32m//     if (variable === null) {[m
+[32m+[m[32m//         return "null";[m
+[32m+[m[32m//     }[m
+[32m+[m[32m//     if (Array.isArray(variable)) {[m
+[32m+[m[32m//         return "array";[m
+[32m+[m[32m//     }[m
+[32m+[m[32m//     if (variable instanceof Date) {[m
+[32m+[m[32m//         return "date";[m
+[32m+[m[32m//     }[m
+[32m+[m[32m//     if (variable instanceof RegExp) {[m
+[32m+[m[32m//         return "regexp";[m
+[32m+[m[32m//     }[m
+[32m+[m[32m//     return typeof variable;[m
+[32m+[m[32m// }[m
+[32m+[m[32m//[m
+[32m+[m[32m// console.log(getType(42)); // "number"[m
+[32m+[m[32m// console.log(getType("Hello, world!")); // "string"[m
+[32m+[m[32m// console.log(getType(true)); // "boolean"[m
+[32m+[m[32m// console.log(getType(undefined)); // "undefined"[m
+[32m+[m[32m// console.log(getType({ name: "Alice" })); // "object"[m
+[32m+[m[32m// console.log(getType(null)); // "null"[m
+[32m+[m[32m// console.log(getType([])); // "array"[m
+[32m+[m[32m// console.log(getType(function() {})); // "function"[m
+[32m+[m[32m// console.log(getType(new Date())); // "date"[m
+[32m+[m[32m// console.log(getType(/regex/)); // "regexp"[m
+[32m+[m[32m// console.log(getType(Symbol())); // "symbol"[m
+[32m+[m[32m// console.log(getType(BigInt(123))); // "bigint"[m
+[32m+[m
+[32m+[m
+[32m+[m[32mconst footer = ([m
+[32m+[m[32m    <footer>[m
+[32m+[m[32m        <p className={classBig}>Footer na razie niezrobiony...</p>[m
+[32m+[m[32m    </footer>[m
+[32m+[m[32m);[m
+[32m+[m
+[32m+[m[32mconst app = [header, main, footer];[m
+[32m+[m
+[32m+[m[32mReactDOM.render(app, document.getElementById("root"));[m
+[1mdiff --git a/index.html b/index.html[m
+[1mnew file mode 100644[m
+[1mindex 0000000..71580bb[m
+[1m--- /dev/null[m
+[1m+++ b/index.html[m
+[36m@@ -0,0 +1,36 @@[m
+[32m+[m[32m<!DOCTYPE html>[m
+[32m+[m[32m<html lang="pl">[m
+[32m+[m
+[32m+[m[32m<head>[m
+[32m+[m[32m    <meta charset="UTF-8">[m
+[32m+[m[32m    <meta name="viewport" content="width=device-width, initial-scale=1.0">[m
+[32m+[m[32m    <meta http-equiv="X-UA-Compatible" content="ie=edge">[m
+[32m+[m[32m    <title>JSX - składnia React do tworzenie struktury</title>[m
+[32m+[m[32m    <!-- Plik ze stylami css -->[m
+[32m+[m[32m    <link rel="stylesheet" href="style.css">[m
+[32m+[m[32m</head>[m
+[32m+[m
+[32m+[m[32m<body>[m
+[32m+[m[32m    <!-- Element HTML pełniący rolę kontenera dla aplikacji React -->[m
+[32m+[m[32m    <div id="root"></div>[m
+[32m+[m
+[32m+[m
+[32m+[m[32m    <!-- Biblioteka React -->[m
+[32m+[m[32m    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>[m
+[32m+[m
+[32m+[m
+[32m+[m[32m    <!-- Biblioteka React DOM -->[m
+[32m+[m[32m    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>[m
+[32m+[m
+[32m+[m
+[32m+[m[32m    <!-- Babel - Nie korzystamy na produkcji (tylko podczas developmentu) -->[m
+[32m+[m[32m    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>[m
+[32m+[m
+[32m+[m
+[32m+[m[32m    <!-- Nasz kod - kompilowanie JSX i ES6 do ES5 - zwróc uwagę na atrybut type (domyślnie: type='text/javascript -->[m
+[32m+[m[32m    <script type="text/babel" src="App.js">[m
+[32m+[m[32m    </script>[m
+[32m+[m[32m</body>[m
+[32m+[m[32m<div id="root"></div>[m
+[32m+[m
+[32m+[m[32m</html>[m
+\ No newline at end of file[m
+[1mdiff --git a/package-lock.json b/package-lock.json[m
+[1mnew file mode 100644[m
+[1mindex 0000000..21b045a[m
+[1m--- /dev/null[m
+[1m+++ b/package-lock.json[m
+[36m@@ -0,0 +1,21705 @@[m
+[32m+[m[32m{[m
+[32m+[m[32m  "name": "my-app",[m
+[32m+[m[32m  "version": "0.1.0",[m
+[32m+[m[32m  "lockfileVersion": 3,[m
+[32m+[m[32m  "requires": true,[m
+[32m+[m[32m  "packages": {[m
+[32m+[m[32m    "": {[m
+[32m+[m[32m      "name": "my-app",[m
+[32m+[m[32m      "version": "0.1.0",[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "react": "^17.0.2",[m
+[32m+[m[32m        "react-dom": "^17.0.2",[m
+[32m+[m[32m        "react-scripts": "4.0.3"[m
+[32m+[m[3
