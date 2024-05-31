@@ -11,25 +11,53 @@
 </head>
 
 <body>
-    <!-- Element HTML pełniący rolę kontenera dla aplikacji React -->
-    <div id="root"></div>
+
+<div id="element_shopping_list">Tu nic jeszcze nie ma</div>
+<div id="root">root</div>
 
 
-    <!-- Biblioteka React -->
-    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script>
+    console.log("aaaaaaaaa")
+
+    let country = {
+        name: "Poland",
+        capital: {
+            name: "Warszawa",
+            population: 2_000_000
+        },
+        population: 38_000_000,
+        cities: []
+    };
+
+    // let cities_values = country.cities.values();
+    // console.log(cities_values)
+    console.log(country.name)
+    console.log(country.cities)
+    console.log(country.population)
+    console.log(country.capital.name)
+    console.log(country.capital.population)
+</script>
 
 
-    <!-- Biblioteka React DOM -->
-    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<!-- Element HTML pełniący rolę kontenera dla aplikacji React -->
+<div id="root"></div>
 
 
-    <!-- Babel - Nie korzystamy na produkcji (tylko podczas developmentu) -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<!-- Biblioteka React -->
+<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
 
 
-    <!-- Nasz kod - kompilowanie JSX i ES6 do ES5 - zwróc uwagę na atrybut type (domyślnie: type='text/javascript -->
-    <script type="text/babel" src="App.js">
-    </script>
+<!-- Biblioteka React DOM -->
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+
+
+<!-- Babel - Nie korzystamy na produkcji (tylko podczas developmentu) -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+
+<!-- Nasz kod - kompilowanie JSX i ES6 do ES5 - zwróc uwagę na atrybut type (domyślnie: type='text/javascript -->
+<script type="text/babel" src="App.js">
+</script>
 </body>
 <div id="root"></div>
 
