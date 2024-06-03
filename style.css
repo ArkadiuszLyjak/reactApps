@@ -1,20 +1,45 @@
 .red {
-	color: red;
+    color: red;
 }
 
 .big {
-	font-size: 30px;
+    font-size: 30px;
 }
 
 table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+body {
+    text-align: center;
+    overflow: hidden;
+}
+
+.title {
+    font-family: arial;
+    padding: 30px;
+    font-size: 50px;
+}
+
+input[type="text"] {
+    padding: 10px 30px;
+    border: black 2px solid;
+    font-size: 30px;
+    outline: none;
+}
+
+p.justified-uppercase {
+    text-align: justify;
+    text-transform: uppercase;
+}
