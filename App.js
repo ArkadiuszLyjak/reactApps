@@ -1,7 +1,7 @@
 //region AAA
 
 // const header = <h1 className="title">Witaj na mojej stronie!</h1>
-//
+
 // const classBig = "big";
 //
 // const handleClick = () => alert("Zostało kliknięte...")
@@ -22,13 +22,11 @@
 //
 //     </div>
 // )
+//
+// ReactDOM.render(<main/>, document.getElementById("root"))
 //endregion
 
 //region CheckBoxAgeConfirmation
-
-// const positive_message = () => <p>MOżesz obejrzeć ten film</p>
-// const negative_message = () => <p>Nie mOżesz obejrzeć ten film</p>
-//
 // class CheckBoxAgeConfirmation extends React.Component {
 //
 //     state = {
@@ -42,22 +40,51 @@
 //     }
 //
 //     render() {
+//         const positive_message = () => <p>MOżesz obejrzeć ten film</p>
+//         const negative_message = () => <p>Nie mOżesz obejrzeć ten film</p>
+//
 //         console.log(this.state.isConfirmed)
 //         return (
 //             <>
 //                 <h1>Kupi bilet na horror</h1>
 //                 <input type='checkbox' id="age" onChange={this.handleCheckboxChange} checked={this.state.isConfirmed}/>
 //                 <label htmlFor='age'> Mam powyżej 18 lat</label>
-//
-//
 //             </>
 //         )
 //     }
-//
-//
 // }
 //
 // ReactDOM.render(<CheckBoxAgeConfirmation/>, document.getElementById("root"))
+//endregion
+
+//region aaa - replay
+// class BuyTicket extends React.Component {
+//
+//     state = {
+//         isConfirmed: false
+//     }
+//
+//     handleChangeCheckbox = () => {
+//         console.log(this.state.isConfirmed)
+//
+//         this.setState({
+//             isConfirmed: !this.state.isConfirmed
+//         })
+//
+//         // console.log(this.state.isConfirmed)        
+//     }
+//
+//     render() {
+//         return (<>
+//             <h3>Kup bilet na horror > 18 lat</h3>
+//             <input type="checkbox" id='age' onChange={this.handleChangeCheckbox}
+//                    checked={this.state.isConfirmed}/>
+//             <label htmlFor='age'>Potwierdz swój wiek</label>
+//         </>)
+//     }
+// }
+//
+// ReactDOM.render(<BuyTicket/>, document.getElementById('root'))
 //endregion
 
 //region addSign
@@ -122,7 +149,9 @@
 //region Shopping List
 // class ShoppingList extends React.Component {
 //     state = {
-//         pozycja_1: "ogórki", pozycja_2: "chleb", pozycja_3: "kawa",
+//         pozycja_1: "ogórki",
+//         pozycja_2: "chleb",
+//         pozycja_3: "kawa",
 //     }
 //
 //     render() {
@@ -132,19 +161,12 @@
 //                 <u>
 //                     <ListWrapperek przedmiot={this.state.pozycja_1} ilosc={23}/>
 //                     <ListWrapperek przedmiot={this.state.pozycja_2}/>
-//                     <ListWrapperek przedmiot={this.state.pozycja_3}/>
-//                     {/*<li>{this.state.pozycja_1}</li>*/}
-//                     {/*<li>{this.state.pozycja_2}</li>*/}
-//                     {/*<li>{this.state.pozycja_3}</li>*/}
+//                     <ListWrapperek przedmiot={this.state.pozycja_3} ilosc={3424}/>
 //                 </u>
 //             </React.Fragment>)
 //     }
 // }
-
-// const ListWrapperek = (props) => {
-//     return (<li>{props.przedmiot}, {props.ilosc}</li>)
-// }
-
+//
 // class ListWrapperek extends React.Component {
 //     render() {
 //         return (
@@ -154,53 +176,53 @@
 //
 //
 // }
-
+//
 // ReactDOM.render(<ShoppingList/>, document.getElementById('root'))
 //endregion
 
 //region AddSign
-// class AppAddingSign extends React.Component {
-//
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             text: ""
-//         }
-//     }
-//
-//
-//     handleClick = () => {
-//         const numberRandom = Math.floor(Math.random() * 21)
-//         const letter = 'z'
-//         this.setState(
-//             {
-//                 text: this.state.text + numberRandom + ", "
-//             }
-//         )
-//         console.log(this.state.text)
-//     }
-//
-//
-//     render() {
-//         const btnName1 = "wykreuj liczbę"
-//        
-//         return (
-//             <div>
-//                 <h2>Dodawanie znaków działa...</h2>
-//                 <button onClick={this.handleClick.bind(this)}>{btnName1} / {this.props.btnTitle}</button>
-//                 <PanelResult text={this.state.text}/>
-//             </div>
-//         );
-//     }
-// }
+class AppAddingSign extends React.Component {
 
-// const PanelResult = (props) => {
-//     return (
-//         <h1>{props.text}</h1>
-//     )
-// }
+    constructor(props) {
+        super(props);
+        this.state = {
+            text: ""
+        }
+    }
 
-// ReactDOM.render(<AppAddingSign btnTitle={"dodaj cyfrę"}/>, document.getElementById('root'))
+
+    handleClick = () => {
+        const numberRandom = Math.floor(Math.random() * 21)
+        const letter = 'z'
+        this.setState(
+            {
+                text: this.state.text + numberRandom + ", "
+            }
+        )
+        console.log(this.state.text)
+    }
+
+
+    render() {
+        const btnName1 = "wykreuj liczbę"
+
+        return (
+            <div>
+                <h2>Dodawanie znaków działa...</h2>
+                <button onClick={this.handleClick.bind(this)}>{btnName1} / {this.props.btnTitle}</button>
+                <PanelResult text={this.state.text}/>
+            </div>
+        );
+    }
+}
+
+const PanelResult = (props) => {
+    return (
+        <h1>{props.text}</h1>
+    )
+}
+
+ReactDOM.render(<AppAddingSign btnTitle={"dodaj cyfrę"}/>, document.getElementById('root'))
 //endregion
 
 //region input text
@@ -336,4 +358,31 @@
 // }
 
 // ReactDOM.render(<Message/>, document.getElementById('root'))
+//endregion
+
+//region CheckboxAgeConfirmation
+
+// class CheckboxAgeConfirmation extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.setState({
+//             age: false
+//         })
+//
+//     }
+//
+//     render() {
+//         return (
+//             <>
+//                 <h1>{this.state.age}</h1>
+//
+//             </>
+//         )
+//     }
+//
+//
+// }
+
+// ReactDom.render(<CheckboxAgeConfirmation/>, document.getElementById('root'))
+
 //endregion
