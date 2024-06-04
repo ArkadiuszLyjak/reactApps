@@ -221,92 +221,87 @@
 //endregion
 
 //region input text
-class AppInputText extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            firstNumber: 1,
-            randomNumber: 2,
-            history: []
-        };
-    }
-
-    handleButtonClick = () => {
-        const random_number = Math.floor(Math.random() * 99);
-        const newFirstNumber = this.state.firstNumber + random_number;
-
-        this.setState(prevState => ({
-            firstNumber: newFirstNumber,
-            randomNumber: random_number,
-            history: [...prevState.history, {firstNumber: newFirstNumber, randomNumber: random_number}]
-        }));
-    }
-
-    render() {
-        const button_name = "dodaj nową liczbę";
-        return (
-            <>
-                <h2>Zaczynamy</h2>
-                <button onClick={this.handleButtonClick}>{button_name}</button>
-                <PrintOnSite history={this.state.history}/>
-            </>
-        );
-    }
-}
-
-const PrintOnSite = (props) => {
-    return (
-        <div>
-            {props.history.map((entry, index) => (
-                <h2 key={index}>firstNumber: {entry.firstNumber}, randomNumber: {entry.randomNumber}</h2>
-            ))}
-        </div>
-    );
-}
-
-ReactDOM.render(<AppInputText/>, document.getElementById('root'));
-//endregion
-
-//region wpisuj
-// class InputStringFromUser extends React.Component {
-//     state = {
-//         value: "_"
+// class AppInputText extends React.Component {
+//
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             firstNumber: 1,
+//             randomNumber: 2,
+//             history: []
+//         };
 //     }
 //
-//     handleChange(e) {
-//         console.log("Zawartość w evencie: " + e.target.value)
-//         console.log("Zawartość przed setState: " + this.state.value)
-//        
-//         this.setState(
-//             {
-//                 value: e.target.value
-//             }
-//         )
-//         console.log("Zawartość po setState: " + this.state.value)
-//     }
+//     handleButtonClick = () => {
+//         const random_number = Math.floor(Math.random() * 99);
+//         const newFirstNumber = this.state.firstNumber + random_number;
 //
-//     handleClick = () => {
-//         this.setState(
-//             {
-//                 value: ""
-//             }
-//         )
+//         this.setState(prevState => ({
+//             firstNumber: newFirstNumber,
+//             randomNumber: random_number,
+//             history: [...prevState.history, {firstNumber: newFirstNumber, randomNumber: random_number}]
+//         }));
 //     }
 //
 //     render() {
+//         const button_name = "dodaj nową liczbę";
 //         return (
 //             <>
-//                 <input value={this.state.value} placeholder="wpisz..." onChange={this.handleChange.bind(this)}
-//                        type="text"/>
-//                 <button onClick={this.handleClick}>reset</button>
-//                 <h1 className="title">{this.state.value.toUpperCase()}</h1>
+//                 <h2>Zaczynamy</h2>
+//                 <button onClick={this.handleButtonClick}>{button_name}</button>
+//                 <PrintOnSite history={this.state.history}/>
 //             </>
-//         )
+//         );
 //     }
 // }
 //
-// ReactDOM.render(<InputStringFromUser/>, document.getElementById('root_2'))
+// const PrintOnSite = (props) => {
+//     return (
+//         <div>
+//             {props.history.map((entry, index) => (
+//                 <h2 key={index}>firstNumber: {entry.firstNumber}, randomNumber: {entry.randomNumber}</h2>
+//             ))}
+//         </div>
+//     );
+// }
+//
+// ReactDOM.render(<AppInputText/>, document.getElementById('root'));
+//endregion
+
+//region wpisuj
+class InputStringFromUser extends React.Component {
+    state = {
+        value: ""
+    }
+    handleInputChange = (e) => {
+        console.log(e.target.value)
+        this.setState(
+            {
+                value: e.target.value
+            }
+        )
+    }
+
+    handleResetClick = () => {
+        this.setState({
+            value: ""
+        })
+    }
+
+    render() {
+        return (
+            <>
+                <h1>Wpisywanie z wejścia</h1>
+                <input value={this.state.value} placeholder="wpisz coś... " type="text"
+                       onChange={this.handleInputChange.bind(this)}/>
+                <button onClick={this.handleResetClick}>Reset</button>
+                <h1 className="title">{this.state.value}</h1>
+            </>
+        )
+    }
+}
+
+ReactDOM.render(<InputStringFromUser/>, document.getElementById('root'))
 //endregion
 
 //region SeekAndHide
@@ -372,6 +367,7 @@ ReactDOM.render(<AppInputText/>, document.getElementById('root'));
 //
 // ReactDom.render(<CheckboxAgeConfirmation/>, document.getElementById('root_4'))
 //endregion
+
 
 //region testy
 // const Apps = () => {
