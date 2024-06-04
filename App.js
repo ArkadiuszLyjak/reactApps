@@ -1,31 +1,3 @@
-//region AAA
-
-// const header = <h1 className="title">Witaj na mojej stronie!</h1>
-
-// const classBig = "big";
-//
-// const handleClick = () => alert("Zostało kliknięte...")
-//
-// const main = (
-//     <div>
-//         <h1 onClick={handleClick} className="red">Pierwszy artykół</h1>
-//         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia
-//             odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada.
-//             Curabitur venenatis neque sit amet felis suscipit, a lacinia odio elementum.
-//             Phasellus hendrerit neque a urna aliquet, ut sollicitudin sapien dapibus.
-//             Sed consectetur massa a odio tincidunt, non bibendum libero cursus. Nullam
-//             vel turpis eu lorem suscipit facilisis. Nam eget sem augue. Suspendisse potenti.
-//             Etiam ac bibendum mauris. Pellentesque habitant morbi tristique senectus et
-//             netus et malesuada fames ac turpis egestas. Vivamus convallis turpis vel enim
-//             blandit, sit amet ultricies nisl ultricies.
-//         </p>
-//
-//     </div>
-// )
-//
-// ReactDOM.render(<main/>, document.getElementById("root"))
-//endregion
-
 //region CheckBoxAgeConfirmation
 // class CheckBoxAgeConfirmation extends React.Component {
 //
@@ -44,6 +16,7 @@
 //         const negative_message = () => <p>Nie mOżesz obejrzeć ten film</p>
 //
 //         console.log(this.state.isConfirmed)
+//        
 //         return (
 //             <>
 //                 <h1>Kupi bilet na horror</h1>
@@ -149,146 +122,167 @@
 //region Shopping List
 // class ShoppingList extends React.Component {
 //     state = {
-//         pozycja_1: "ogórki",
-//         pozycja_2: "chleb",
-//         pozycja_3: "kawa",
+//         item_1: "ogórki1",
+//         item_2: "ogórki2",
+//         item_3: "ogórki3",
+//         item_4: "ogórki4",
+//         item_5: "ogórki5",
+//         item_6: "ogórki6",
+//         item_7: "ogórki7",
 //     }
 //
 //     render() {
 //         return (
-//             <React.Fragment>
-//                 <h1>Tu coś będzie</h1>
-//                 <u>
-//                     <ListWrapperek przedmiot={this.state.pozycja_1} ilosc={23}/>
-//                     <ListWrapperek przedmiot={this.state.pozycja_2}/>
-//                     <ListWrapperek przedmiot={this.state.pozycja_3} ilosc={3424}/>
-//                 </u>
-//             </React.Fragment>)
+//             <>
+//                 <h1>Lista zakupów</h1>
+//                 <ul>
+//                     <li>{this.state.item_1}, szt. 4</li>
+//                     <li>{this.state.item_2}</li>
+//                     <li>{this.state.item_3}</li>
+//                     <ItemList position={this.state.item_3} quontity={21}/>
+//                     <ItemList position={this.state.item_4}/>
+//                     <ItemList position={this.state.item_5}/>
+//                     <ItemList position={this.state.item_5}/>
+//                     <ItemListClassComponent position={this.state.item_6} quontity={3423}/>
+//                     <ItemListClassComponent position={this.state.item_7} quontity={3}/>
+//                 </ul>
+//             </>
+//         )
 //     }
 // }
 //
-// class ListWrapperek extends React.Component {
+// const ItemList = (props) => {
+//     return (
+//         <li>{props.position}, szt. {props.quontity}</li>
+//     )
+// }
+//
+// class ItemListClassComponent extends React.Component {
 //     render() {
 //         return (
-//             <li>{this.props.przedmiot} szt. {this.props.ilosc}</li>
-//         )
+//             <div>
+//                 <li>{this.props.position}, szt. {this.props.quontity}</li>
+//             </div>
+//         );
 //     }
-//
-//
 // }
 //
 // ReactDOM.render(<ShoppingList/>, document.getElementById('root'))
 //endregion
 
 //region AddSign
-class AppAddingSign extends React.Component {
+// class AppAddingSign extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             litera: ''
+//         }
+//         this.handleClick = this.handleClick.bind(this)
+//     }
+//
+//     // handleClick() {
+//     //     console.log("kliknięte")
+//     //
+//     //     this.setState((prevState) => ({
+//     //             litera: this.prevState.litera + '_'
+//     //         })
+//     //     )
+//     // }
+//
+//     handleClick = () => {
+//         console.log("kliknięte")
+//         let number = Math.floor(Math.random() * 100)
+//         this.setState(
+//             {
+//                 litera: this.state.litera + " " + number
+//             }
+//         )
+//     }
+//
+//     render() {
+//         return (
+//             <>
+//                 <button onClick={this.handleClick.bind(this)}>{this.props.buttonTitle}</button>
+//                 <label> Kliknij mnie</label>
+//                 {/*<PanelResult letter={this.state.litera}/>*/}
+//                 <PanelResult letter={this.state.litera}>Dziecko</PanelResult>
+//             </>
+//         )
+//     }
+// }
+//
+// const PanelResult = (props) => {
+//     return (
+//         <h1>{props.letter}:{props.children}</h1>
+//     )
+// }
+//
+// ReactDOM.render(<AppAddingSign buttonTitle="dodaj cyfrę..."/>, document.getElementById('root'))
+//endregion
+
+//region input text
+class AppInputText extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            text: ""
-        }
+            firstNumber: 1,
+            randomNumber: 2,
+            history: []
+        };
     }
 
+    handleButtonClick = () => {
+        const random_number = Math.floor(Math.random() * 99);
+        const newFirstNumber = this.state.firstNumber + random_number;
 
-    handleClick = () => {
-        const numberRandom = Math.floor(Math.random() * 21)
-        const letter = 'z'
-        this.setState(
-            {
-                text: this.state.text + numberRandom + ", "
-            }
-        )
-        console.log(this.state.text)
+        this.setState(prevState => ({
+            firstNumber: newFirstNumber,
+            randomNumber: random_number,
+            history: [...prevState.history, {firstNumber: newFirstNumber, randomNumber: random_number}]
+        }));
     }
-
 
     render() {
-        const btnName1 = "wykreuj liczbę"
-
+        const button_name = "dodaj nową liczbę";
         return (
-            <div>
-                <h2>Dodawanie znaków działa...</h2>
-                <button onClick={this.handleClick.bind(this)}>{btnName1} / {this.props.btnTitle}</button>
-                <PanelResult text={this.state.text}/>
-            </div>
+            <>
+                <h2>Zaczynamy</h2>
+                <button onClick={this.handleButtonClick}>{button_name}</button>
+                <PrintOnSite history={this.state.history}/>
+            </>
         );
     }
 }
 
-const PanelResult = (props) => {
+const PrintOnSite = (props) => {
     return (
-        <h1>{props.text}</h1>
-    )
+        <div>
+            {props.history.map((entry, index) => (
+                <h2 key={index}>firstNumber: {entry.firstNumber}, randomNumber: {entry.randomNumber}</h2>
+            ))}
+        </div>
+    );
 }
 
-ReactDOM.render(<AppAddingSign btnTitle={"dodaj cyfrę"}/>, document.getElementById('root'))
-//endregion
-
-//region input text
-// class AppInputText extends React.Component {
-//
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             firstNumber: 1,
-//             randomNumber: 2,
-//             history: []
-//         };
-//     }
-//
-//     handleButtonClick = () => {
-//         const random_number = Math.floor(Math.random() * 99);
-//         const newFirstNumber = this.state.firstNumber + random_number;
-//        
-//         this.setState(prevState => ({
-//             firstNumber: newFirstNumber,
-//             randomNumber: random_number,
-//             history: [...prevState.history, { firstNumber: newFirstNumber, randomNumber: random_number }]
-//         }));
-//     }
-//
-//     render() {
-//         const button_name = "button_1";
-//         return (
-//             <>
-//                 <h2>Zaczynamy</h2>
-//                 <button onClick={this.handleButtonClick}>{button_name}</button>
-//                 <PrintOnSite history={this.state.history} />
-//             </>
-//         );
-//     }
-// }
-
-// const PrintOnSite = (props) => {
-//     return (
-//         <div>
-//             {props.history.map((entry, index) => (
-//                 <h2 key={index}>firstNumber: {entry.firstNumber}, randomNumber: {entry.randomNumber}</h2>
-//             ))}
-//         </div>
-//     );
-// }
-
-// ReactDOM.render(<AppInputText />, document.getElementById('root'));
-
+ReactDOM.render(<AppInputText/>, document.getElementById('root'));
 //endregion
 
 //region wpisuj
 // class InputStringFromUser extends React.Component {
 //     state = {
-//         value: ""
+//         value: "_"
 //     }
 //
 //     handleChange(e) {
 //         console.log("Zawartość w evencie: " + e.target.value)
 //         console.log("Zawartość przed setState: " + this.state.value)
+//        
 //         this.setState(
 //             {
 //                 value: e.target.value
 //             }
 //         )
-//
 //         console.log("Zawartość po setState: " + this.state.value)
 //     }
 //
@@ -311,13 +305,11 @@ ReactDOM.render(<AppAddingSign btnTitle={"dodaj cyfrę"}/>, document.getElementB
 //         )
 //     }
 // }
-
-// ReactDOM.render(<InputStringFromUser/>, document.getElementById('root'))
-
+//
+// ReactDOM.render(<InputStringFromUser/>, document.getElementById('root_2'))
 //endregion
 
 //region SeekAndHide
-
 // class Message extends React.Component {
 //
 //     constructor(props) {
@@ -356,33 +348,65 @@ ReactDOM.render(<AppAddingSign btnTitle={"dodaj cyfrę"}/>, document.getElementB
 //         )
 //     }
 // }
-
-// ReactDOM.render(<Message/>, document.getElementById('root'))
+//
+// ReactDOM.render(<Message/>, document.getElementById('root_3'))
 //endregion
 
 //region CheckboxAgeConfirmation
-
 // class CheckboxAgeConfirmation extends React.Component {
 //     constructor(props) {
 //         super(props);
 //         this.setState({
 //             age: false
 //         })
-//
 //     }
 //
 //     render() {
 //         return (
 //             <>
 //                 <h1>{this.state.age}</h1>
-//
 //             </>
 //         )
 //     }
-//
-//
 // }
+//
+// ReactDom.render(<CheckboxAgeConfirmation/>, document.getElementById('root_4'))
+//endregion
 
-// ReactDom.render(<CheckboxAgeConfirmation/>, document.getElementById('root'))
-
+//region testy
+// const Apps = () => {
+//     return (
+//         <>
+//             <h1>Jaka paka</h1>
+//
+//         </>
+//     )
+// }
+//
+// class AppsClass extends React.Component {
+//     state = {
+//         number: 34
+//     }
+//
+//     render() {
+//         return (
+//             <div>
+//                 <h2>Taka paka waży: {this.state.number}</h2>
+//             </div>
+//         );
+//     }
+// }
+//
+// const ReturnApps = () => {
+//     return (
+//         <>
+//             <Apps/>
+//             <AppsClass/>
+//         </>
+//
+//     )
+// }
+//
+// // ReactDOM.render(<AppsClass/>, document.getElementById('root'))
+// ReactDOM.render(<ReturnApps />, document.getElementById('root'))
 //endregion
