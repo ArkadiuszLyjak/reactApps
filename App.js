@@ -295,7 +295,7 @@ class InputStringFromUser extends React.Component {
                 <input value={this.state.value} placeholder="wpisz coś... " type="text"
                        onChange={this.handleInputChange.bind(this)}/>
                 <button onClick={this.handleResetClick}>Reset</button>
-                <h1 className="title">{this.state.value}</h1>
+                <h1 className="title">{this.state.value.toUpperCase()}</h1>
             </>
         )
     }
