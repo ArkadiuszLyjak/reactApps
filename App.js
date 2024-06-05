@@ -77,7 +77,6 @@
 // }
 
 // ReactDOM.render(<ButtonAddSign/>, document.getElementById('root'))
-
 //endregion
 
 //region komponent funkcyjny, bezstanowy
@@ -269,82 +268,74 @@
 //endregion
 
 //region wpisuj
-class InputStringFromUser extends React.Component {
-    state = {
-        value: ""
-    }
-    handleInputChange = (e) => {
-        console.log(e.target.value)
-        this.setState(
-            {
-                value: e.target.value
-            }
-        )
-    }
-
-    handleResetClick = () => {
-        this.setState({
-            value: ""
-        })
-    }
-
-    render() {
-        return (
-            <>
-                <h1>Wpisywanie z wejścia</h1>
-                <input value={this.state.value} placeholder="wpisz coś... " type="text"
-                       onChange={this.handleInputChange.bind(this)}/>
-                <button onClick={this.handleResetClick}>Reset</button>
-                <h1 className="title">{this.state.value.toUpperCase()}</h1>
-            </>
-        )
-    }
-}
-
-ReactDOM.render(<InputStringFromUser/>, document.getElementById('root'))
-//endregion
-
-//region SeekAndHide
-// class Message extends React.Component {
-//
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             messageIsActive: false
-//         }
-//
-//         this.handleMessageButton = this.handleMessageButton.bind(this)
-//
+// class InputStringFromUser extends React.Component {
+//     state = {
+//         value: ""
 //     }
-//
-//     handleMessageButton = () => {
-//         // debugger
+//     handleInputChange = (e) => {
+//         console.log(e.target.value)
 //         this.setState(
 //             {
-//                 messageIsActive: !this.state.messageIsActive
+//                 value: e.target.value
 //             }
 //         )
 //     }
 //
+//     handleResetClick = () => {
+//         this.setState({
+//             value: ""
+//         })
+//     }
+//
 //     render() {
-//         console.log(this.state.messageIsActive)
-//
-//         const text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor " +
-//             "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation " +
-//             "ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit" +
-//             " in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat " +
-//             "non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-//
 //         return (
 //             <>
-//                 <button onClick={this.handleMessageButton}>{this.state.messageIsActive ? 'ukryj' : 'pokaz'}</button>
-//                 <p className="justified-uppercase">{this.state.messageIsActive && text}</p>
+//                 <h1>Wpisywanie z wejścia</h1>
+//                 <input value={this.state.value} placeholder="wpisz coś... " type="text"
+//                        onChange={this.handleInputChange.bind(this)}/>
+//                 <button onClick={this.handleResetClick}>Reset</button>
+//                 <h1 className="title">{this.state.value.toUpperCase()}</h1>
 //             </>
 //         )
 //     }
 // }
 //
-// ReactDOM.render(<Message/>, document.getElementById('root_3'))
+// ReactDOM.render(<InputStringFromUser/>, document.getElementById('root'))
+//endregion
+
+//region SeekAndHide
+class Message extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isActive: false
+        };
+        this.handleMessageButton = this.handleMessageButton.bind(this);
+    }
+
+    handleMessageButton() {
+        this.setState({
+            isActive: !this.state.isActive
+        });
+    }
+
+    render() {
+        console.log(this.state.isActive);
+        const text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor " + "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation" + " ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit" + " in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat" + " non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+
+        const style = {
+            textTransform: "uppercase", textAlign: "justify", fontSize: "10px"
+        };
+
+        return (<>
+                <button onClick={this.handleMessageButton}>{this.state.isActive ? "Ukryj" : "Pokaż"}</button>
+                {this.state.isActive && <p style={style}>{text}</p>}
+            </>);
+    }
+}
+
+ReactDOM.render(<Message/>, document.getElementById('root'));
+
 //endregion
 
 //region CheckboxAgeConfirmation
