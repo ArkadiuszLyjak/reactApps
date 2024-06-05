@@ -304,96 +304,66 @@
 //endregion
 
 //region SeekAndHide
-class Message extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isActive: false
-        };
-        this.handleMessageButton = this.handleMessageButton.bind(this);
-    }
-
-    handleMessageButton() {
-        this.setState({
-            isActive: !this.state.isActive
-        });
-    }
-
-    render() {
-        console.log(this.state.isActive);
-        const text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor " + "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation" + " ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit" + " in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat" + " non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-
-        const style = {
-            textTransform: "uppercase", textAlign: "justify", fontSize: "10px"
-        };
-
-        return (<>
-                <button onClick={this.handleMessageButton}>{this.state.isActive ? "Ukryj" : "Pokaż"}</button>
-                {this.state.isActive && <p style={style}>{text}</p>}
-            </>);
-    }
-}
-
-ReactDOM.render(<Message/>, document.getElementById('root'));
+// class Message extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             isActive: false
+//         };
+//         this.handleMessageButton = this.handleMessageButton.bind(this);
+//     }
+//
+//     handleMessageButton() {
+//         this.setState({
+//             isActive: !this.state.isActive
+//         });
+//     }
+//
+//     render() {
+//         console.log(this.state.isActive);
+//         const text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor " + "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation" + " ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit" + " in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat" + " non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+//
+//         const style = {
+//             textTransform: "uppercase", textAlign: "justify", fontSize: "10px"
+//         };
+//
+//         return (<>
+//                 <button onClick={this.handleMessageButton}>{this.state.isActive ? "Ukryj" : "Pokaż"}</button>
+//                 {this.state.isActive && <p style={style}>{text}</p>}
+//             </>);
+//     }
+// }
+//
+// ReactDOM.render(<Message/>, document.getElementById('root'));
 
 //endregion
 
 //region CheckboxAgeConfirmation
-// class CheckboxAgeConfirmation extends React.Component {
-//     constructor(props) {
-//         super(props);
-//         this.setState({
-//             age: false
-//         })
-//     }
-//
-//     render() {
-//         return (
-//             <>
-//                 <h1>{this.state.age}</h1>
-//             </>
-//         )
-//     }
-// }
-//
-// ReactDom.render(<CheckboxAgeConfirmation/>, document.getElementById('root_4'))
-//endregion
+class CheckboxAgeConfirmation extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            age: false
+        };
+    }
 
+    render() {
+        return (
+            <>
+                <h1>{this.state.age ? "Confirmed" : "Not Confirmed"}</h1>
+                <label>
+                    Confirm Age
+                    <input 
+                        type="checkbox" 
+                        checked={this.state.age} 
+                        onChange={() => this.setState({ age: !this.state.age })} 
+                    />
+                </label>
+            </>
+        );
+    }
+}
 
-//region testy
-// const Apps = () => {
-//     return (
-//         <>
-//             <h1>Jaka paka</h1>
-//
-//         </>
-//     )
-// }
-//
-// class AppsClass extends React.Component {
-//     state = {
-//         number: 34
-//     }
-//
-//     render() {
-//         return (
-//             <div>
-//                 <h2>Taka paka waży: {this.state.number}</h2>
-//             </div>
-//         );
-//     }
-// }
-//
-// const ReturnApps = () => {
-//     return (
-//         <>
-//             <Apps/>
-//             <AppsClass/>
-//         </>
-//
-//     )
-// }
-//
-// // ReactDOM.render(<AppsClass/>, document.getElementById('root'))
-// ReactDOM.render(<ReturnApps />, document.getElementById('root'))
+ReactDOM.render(<CheckboxAgeConfirmation />, document.getElementById('root'));
+
 //endregion
