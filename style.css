@@ -34,9 +34,12 @@ h1 {
     font-style: oblique;
 }
 
-button {
-    font-size: 24px;
-}
+/*button {*/
+/*    font-size: 34px;*/
+/*    padding: 5px;*/
+/*    margin: 1px;*/
+/*    border: 2px solid darkred;*/
+/*}*/
 
 .title {
     font-family: arial;
@@ -54,4 +57,11 @@ input[type="text"] {
 p.justified-uppercase {
     text-align: justify;
     text-transform: uppercase;
+}
+
+.styled-button {
+    font-size: 24px;
+    padding: 10px;
+    margin: 5px;
+    border: 2px solid darkred;
 }

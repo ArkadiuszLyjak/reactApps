@@ -374,50 +374,65 @@ class Counter extends React.Component {
         super(props);
         this.state = {
             count: 0,
-            result: 0
+            result: this.props.result
         }
     }
 
+    handleMathClick = (type, number = 1) => {
+        this.setState(prevState => {
+            let newResult;
+            let newCount = prevState.count + 1;
 
-    handleMathClick(type, number) {
-        if (type === "substraction") {
-            this.setState(prevState => ({
-                    count: prevState.count + 1,
-                    result: prevState.result - number
-                })
-            )
-        } else if (type === "adding") {
-            this.setState(prevState => (
-                {
-                    count: prevState.count + 1,
-                    result: prevState.result + number
-                }
-            ))
-        } else if (type === "reset") {
-            this.setState(
-                {
-                    count: 0,
-                    result: 0
-                }
-            )
-        }
+            if (type === "subtraction") {
+                newResult = prevState.result - number;
+            } else if (type === "adding") {
+                newResult = prevState.result + number;
+            } else if (type === "reset") {
+                newResult = 0;
+                newCount = 0;
+            }
+
+            return {
+                count: newCount,
+                result: newResult
+            };
+        });
     }
 
     render() {
-        return (<>
-                <button onClick={this.handleMathClick.bind(this, "substraction", 1)}>-1</button>
-                <button onClick={this.handleMathClick.bind(this, "reset")}>reset</button>
-                <button onClick={this.handleMathClick.bind(this, "adding", 1)}>+1</button>
-                <p>Liczba kliknięć: {this.state.count}</p>
-                <p>Wynik: {this.state.result}</p>
+        return (
+            <>
+                <MathButton name="-1" number={1} type="subtraction" click={this.handleMathClick}/>
+                <MathButton name="reset" type="reset" click={this.handleMathClick}/>
+                <MathButton name="+1" number={1} type="adding" click={this.handleMathClick}/>
+
+                <ResultPanel count={this.state.count} result={this.state.result}/>
+
             </>
-        )
-
+        );
     }
-
-
 }
 
-ReactDOM.render(<Counter/>, document.getElementById('root'))
+const ResultPanel = (props) => {
+    return (
+        <>
+            <p>Liczba kliknięć: {props.count} {props.count > 10 ? <span>Przeciążenie!</span> : null}</p>
+            <p>Wynik: {props.result}</p>
+        </>
+    )
+}
+
+
+const MathButton = (props) => {
+    const number = props.number || 0;
+    return (
+        <button className="styled-button" onClick={() => props.click(props.type, number)}>
+            {props.name}
+        </button>
+    );
+}
+
+const startValue = 0;
+ReactDOM.render(<Counter result={startValue}/>, document.getElementById('root'));
 
 //endregion
