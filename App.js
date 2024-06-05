@@ -339,31 +339,85 @@
 //endregion
 
 //region CheckboxAgeConfirmation
-class CheckboxAgeConfirmation extends React.Component {
+// class CheckboxAgeConfirmation extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             age: false
+//         };
+//     }
+//
+//     render() {
+//         return (
+//             <>
+//                 <h1>{this.state.age ? "Confirmed" : "Not Confirmed"}</h1>
+//                 <label>
+//                     Confirm Age
+//                     <input 
+//                         type="checkbox" 
+//                         checked={this.state.age} 
+//                         onChange={() => this.setState({ age: !this.state.age })} 
+//                     />
+//                 </label>
+//             </>
+//         );
+//     }
+// }
+//
+// ReactDOM.render(<CheckboxAgeConfirmation />, document.getElementById('root'));
+
+//endregion
+
+//region Click Counter
+class Counter extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            age: false
-        };
+            count: 0,
+            result: 0
+        }
+    }
+
+
+    handleMathClick(type, number) {
+        if (type === "substraction") {
+            this.setState(prevState => ({
+                    count: prevState.count + 1,
+                    result: prevState.result - number
+                })
+            )
+        } else if (type === "adding") {
+            this.setState(prevState => (
+                {
+                    count: prevState.count + 1,
+                    result: prevState.result + number
+                }
+            ))
+        } else if (type === "reset") {
+            this.setState(
+                {
+                    count: 0,
+                    result: 0
+                }
+            )
+        }
     }
 
     render() {
-        return (
-            <>
-                <h1>{this.state.age ? "Confirmed" : "Not Confirmed"}</h1>
-                <label>
-                    Confirm Age
-                    <input 
-                        type="checkbox" 
-                        checked={this.state.age} 
-                        onChange={() => this.setState({ age: !this.state.age })} 
-                    />
-                </label>
+        return (<>
+                <button onClick={this.handleMathClick.bind(this, "substraction", 1)}>-1</button>
+                <button onClick={this.handleMathClick.bind(this, "reset")}>reset</button>
+                <button onClick={this.handleMathClick.bind(this, "adding", 1)}>+1</button>
+                <p>Liczba kliknięć: {this.state.count}</p>
+                <p>Wynik: {this.state.result}</p>
             </>
-        );
+        )
+
     }
+
+
 }
 
-ReactDOM.render(<CheckboxAgeConfirmation />, document.getElementById('root'));
+ReactDOM.render(<Counter/>, document.getElementById('root'))
 
 //endregion
