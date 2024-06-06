@@ -338,8 +338,8 @@
 
 //endregion
 
-//region CheckboxAgeConfirmation
-// class CheckboxAgeConfirmation extends React.Component {
+//region CheckboxAgeConfirmation_0
+// class TicketShop extends React.Component {
 //     constructor(props) {
 //         super(props);
 //         this.state = {
@@ -364,75 +364,154 @@
 //     }
 // }
 //
-// ReactDOM.render(<CheckboxAgeConfirmation />, document.getElementById('root'));
-
+// ReactDOM.render(<TicketShop />, document.getElementById('root'));
 //endregion
 
 //region Click Counter
-class Counter extends React.Component {
+// class Counter extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             count: 0,
+//             result: this.props.result
+//         }
+//     }
+//
+//     handleMathClick = (type, number = 1) => {
+//         this.setState(prevState => {
+//             let newResult;
+//             let newCount = prevState.count + 1;
+//
+//             if (type === "subtraction") {
+//                 newResult = prevState.result - number;
+//             } else if (type === "adding") {
+//                 newResult = prevState.result + number;
+//             } else if (type === "reset") {
+//                 newResult = 0;
+//                 newCount = 0;
+//             }
+//
+//             return {
+//                 count: newCount,
+//                 result: newResult
+//             };
+//         });
+//     }
+//
+//     render() {
+//         return (
+//             <>
+//                 <MathButton name="-1" number={1} type="subtraction" click={this.handleMathClick}/>
+//                 <MathButton name="reset" type="reset" click={this.handleMathClick}/>
+//                 <MathButton name="+1" number={1} type="adding" click={this.handleMathClick}/>
+//
+//                 <ResultPanel count={this.state.count} result={this.state.result}/>
+//
+//             </>
+//         );
+//     }
+// }
+//
+// const ResultPanel = (props) => {
+//     return (
+//         <>
+//             <p>Liczba kliknięć: {props.count} {props.count > 10 ? <span>Przeciążenie!</span> : null}</p>
+//             <p>Wynik: {props.result}</p>
+//         </>
+//     )
+// }
+//
+//
+// const MathButton = (props) => {
+//     const number = props.number || 0;
+//     return (
+//         <button className="styled-button" onClick={() => props.click(props.type, number)}>
+//             {props.name}
+//         </button>
+//     );
+// }
+//
+// const startValue = 0;
+// ReactDOM.render(<Counter result={startValue}/>, document.getElementById('root'));
+//endregion
+
+//region BuyTicket
+class TicketShop extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            count: 0,
-            result: this.props.result
+            isConfirmed: false,
+            isFormSubmitted: false
         }
     }
 
-    handleMathClick = (type, number = 1) => {
-        this.setState(prevState => {
-            let newResult;
-            let newCount = prevState.count + 1;
+    handleCheckboxChange = () => {
+        this.setState({
+            isConfirmed: !this.state.isConfirmed,
+            isFormSubmitted: false
+        })
+    }
 
-            if (type === "subtraction") {
-                newResult = prevState.result - number;
-            } else if (type === "adding") {
-                newResult = prevState.result + number;
-            } else if (type === "reset") {
-                newResult = 0;
-                newCount = 0;
-            }
+    // displayMessage = () => {
+    //     if (this.state.isFormSubmitted) {
+    //         if (this.state.isConfirmed) {
+    //             return <ValidationMessage text={"Confirmed"}/>
+    //         } else {
+    //             return <ValidationMessage text={"Not Confirmed"}/>
+    //         }
+    //     } else {
+    //         return null
+    //     }
+    // }
 
-            return {
-                count: newCount,
-                result: newResult
-            };
-        });
+    handleFormSubmit = (e) => {
+        e.preventDefault();
+        this.setState({isFormSubmitted: true});
     }
 
     render() {
+
+        const {isConfirmed, isFormSubmitted} = this.state
+
         return (
             <>
-                <MathButton name="-1" number={1} type="subtraction" click={this.handleMathClick}/>
-                <MathButton name="reset" type="reset" click={this.handleMathClick}/>
-                <MathButton name="+1" number={1} type="adding" click={this.handleMathClick}/>
-
-                <ResultPanel count={this.state.count} result={this.state.result}/>
-
+                <h1>Kup bilet na horror</h1>
+                <form onSubmit={this.handleFormSubmit}>
+                    <input type="checkbox" id="age" checked={isConfirmed}
+                           onChange={this.handleCheckboxChange}/>
+                    <label htmlFor="age">Mam co najmniej 16 lat</label><br/>
+                    <button type="submit">Kup bilet</button>
+                </form>
+                {displayMessage(isConfirmed, isFormSubmitted)}
             </>
         );
     }
 }
 
-const ResultPanel = (props) => {
+const displayMessage = (isConfirmed, isFormSubmitted) => {
+    if (isFormSubmitted) {
+        if (isConfirmed) {
+            return <ValidationMessage text={"Confirmed"}/>
+        } else {
+            return <ValidationMessage text={"Not Confirmed"}/>
+        }
+    } else {
+        return null
+    }
+}
+
+
+const ValidationMessage = (props) => {
+    const {text} = props
+
     return (
-        <>
-            <p>Liczba kliknięć: {props.count} {props.count > 10 ? <span>Przeciążenie!</span> : null}</p>
-            <p>Wynik: {props.result}</p>
-        </>
+        <p>{text}</p>
     )
+
 }
 
+// const PositiveMessage = () => <p>Możesz obejrzeć ten film.</p>
+// const NegativeMessage = () => <p>Nie możesz obejrzeć tego filmu!</p>
 
-const MathButton = (props) => {
-    const number = props.number || 0;
-    return (
-        <button className="styled-button" onClick={() => props.click(props.type, number)}>
-            {props.name}
-        </button>
-    );
-}
-
-const startValue = 0;
-ReactDOM.render(<Counter result={startValue}/>, document.getElementById('root'));
-
+ReactDOM.render(<TicketShop/>, document.getElementById('root'));
 //endregion
