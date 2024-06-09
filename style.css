@@ -1,9 +1,18 @@
 .red {
     color: red;
+    text-align: center;
 }
 
 .big {
     font-size: 30px;
+    text-transform: uppercase;
+}
+
+.text-justify {
+    text-align: justify;
+    /*text-transform: uppercase;*/
+    /*color: blue;*/
+
 }
 
 table {
@@ -31,7 +40,9 @@ body {
 }
 
 h1 {
-    font-style: oblique;
+    /*font-style: oblique;*/
+    color: blue;
+    text-transform: uppercase;
 }
 
 .title {

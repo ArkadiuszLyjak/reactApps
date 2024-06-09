@@ -5,54 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>JSX - składnia React do tworzenie struktury</title>
+    <title>Komponenty w React - wprowadzenie</title>
     <!-- Plik ze stylami css -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="footer.css">
 </head>
 
 <body>
-
-<!--<div id="element_shopping_list">Tu nic jeszcze nie ma</div>-->
-<div id="root">loading ...</div>
-<!--<div id="loading-text">loading...</div>-->
-
-
-<script>
-    let dots = '';
-    // const loadingText = document.getElementById('loading-text');
-    //
-    // function updateLoadingText() {
-    //     dots += '.';
-    //     if (dots.length > 10) {
-    //         dots = '';
-    //     }
-    //     loadingText.textContent = `loading${dots}`;
-    // }
-    //
-    // setInterval(updateLoadingText, 100); // Update every 100 milliseconds (0.1 second)
-</script>
-
-
 <!-- Element HTML pełniący rolę kontenera dla aplikacji React -->
 <div id="root"></div>
-
-
 <!-- Biblioteka React -->
 <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-
-
 <!-- Biblioteka React DOM -->
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
-
-
 <!-- Babel - Nie korzystamy na produkcji (tylko podczas developmentu) -->
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-
-<!-- Nasz kod - kompilowanie JSX i ES6 do ES5 - zwróc uwagę na atrybut type (domyślnie: type='text/javascript -->
-<script type="text/babel" src="App.js">
+<!-- Nasz kod -->
+<script type="text/babel" src="app.js">
 </script>
 </body>
-<div id="root"></div>
 
 </html>
