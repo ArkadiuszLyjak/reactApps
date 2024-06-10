@@ -4,12 +4,15 @@
 const classBig = "big";
 
 const justify_text = "text-justify"
-const header = <h1 className={classBig}>Witaj na mojej stronie</h1>
+const handleClick = () => {
+    alert("Dzień Dobry, jestem z Kobry")
+}
 
+const header = <h1 onClick={handleClick} className={classBig}>Witaj na mojej stronie</h1>
 const main = (
     <>
+        <h2>What is Lorem Ipsum?</h2>
         <div id="elementowiec" style={{textAlign: 'left'}}>
-            <h2>What is Lorem Ipsum?</h2>
         </div>
         <div className={justify_text}>
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
@@ -22,17 +25,61 @@ const main = (
     </>
 );
 
+const footer_text = "Copyright 2024"
+
 const footer = (
     <footer>
         <div>
-            <p>footer</p>
+            <p>{footer_text}</p>
         </div>
     </footer>
 )
 
 const disclaimer = <section>
-    <div>disclaimer</div>
+    <div>...</div>
 </section>
 
 const app = [header, main, footer, disclaimer]
 ReactDOM.render(app, document.getElementById('root'))
+
+// ///////////////////////////////////////////////////////////////////////////////
+
+const App = () => {
+    return (
+        <div>
+            <h1>Pierwszy komponent funkcyjny</h1>
+        </div>
+    )
+}
+
+ReactDOM.render(<App/>, document.getElementById('root_1'))
+
+// ///////////////////////////////////////////////////////////////////////////////
+
+class Blog extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isActive: false,
+            isConfirmed: false
+        }
+    }
+
+    render() {
+        return (
+            <section>
+                <h2>To jest tekst z komponentu klaswoego Blog</h2>
+            </section>
+        )
+
+    }
+
+
+}
+
+ReactDOM.render(<Blog/>, document.getElementById('root_2'))
+
+// ///////////////////////////////////////////////////////////////////////////////
+
+
+

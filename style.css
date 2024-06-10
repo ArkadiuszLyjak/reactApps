@@ -15,6 +15,12 @@
 
 }
 
+.thick-separator {
+    border: none;
+    height: 2px;
+    background-color: black;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
