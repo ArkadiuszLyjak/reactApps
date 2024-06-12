@@ -81,5 +81,33 @@ ReactDOM.render(<Blog/>, document.getElementById('root_2'))
 
 // ///////////////////////////////////////////////////////////////////////////////
 
+class ShoppingList extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            item_1: 'ogorki1',
+            item_2: 'ogorki2',
+            item_3: 'ogorki3',
+        }
+    }
+
+    render() {
+        return (
+            <>
+                <h1>Lista zakupów</h1>
+                <ul>
+                    <li>this.state.item_1</li>
+
+                </ul>
+            </>
+
+        )
+    }
+
+
+}
+
+ReactDOM.render(<ShoppingList/>, document.getElementById('root_3'));
+
 
 
