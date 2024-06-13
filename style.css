@@ -37,19 +37,19 @@ th {
 }
 
 body {
-    background-color: bisque;
-    margin: 20px;
-    font-family: roboto, sans-serif;
-    font-size: 20px;
-    text-align: center;
-    overflow: hidden;
+    /*background-color: bisque;*/
+    /*margin: 20px;*/
+    /*font-family: roboto, sans-serif;*/
+    /*font-size: 20px;*/
+    /*text-align: center;*/
+    /*overflow: hidden;*/
 }
 
-h1 {
-    /*font-style: oblique;*/
-    color: blue;
-    text-transform: uppercase;
-}
+/*h1 {*/
+/*    font-style: oblique;*/
+/*    color: blue;*/
+/*    text-transform: uppercase;*/
+/*}*/
 
 .title {
     font-family: arial;
@@ -70,10 +70,10 @@ p.justified-uppercase {
 }
 
 .styled-button {
-    font-size: 24px;
-    padding: 10px;
-    margin: 5px;
-    border: 2px solid darkred;
+    /*font-size: 24px;*/
+    /*padding: 10px;*/
+    /*margin: 5px;*/
+    /*border: 2px solid darkred;*/
 }
 
 #loading-text {
