@@ -133,30 +133,25 @@ const button_text = "Dodaj literę";
 
 class ButtonApp extends React.Component {
     constructor(props) {
-        super();
+        super(props);
         this.state = {
             text: ""
         };
     }
 
-
-    letter = 'a';
-
-    change_text = () => {
+    change_text = (letter) => {
         this.setState(prevState => ({
-            text: prevState.text + this.letter
+            text: prevState.text + letter
         }));
-    }
-    
-    printStateText = () => {
-        return this.state.text
     }
 
     render() {
         return (
             <>
-                <AddButton onClick={this.change_text} css_class={styled_button_css} button_text={button_text}/>
-                <h1>{this.printStateText()}</h1>
+                <AddButton onClick={() => this.change_text('A')} css_class={styled_button_css} button_text={button_text} />
+                <AddButton onClick={() => this.change_text('B')} css_class={styled_button_css} button_text="Dodaj literę B" />
+                <AddButton onClick={() => this.change_text('C')} css_class={styled_button_css} button_text="Dodaj literę C" />
+                <p>{this.state.text}</p>
             </>
         );
     }
@@ -168,7 +163,8 @@ const AddButton = (props) => {
     );
 }
 
-ReactDOM.render(<ButtonApp/>, document.getElementById('root'));
+ReactDOM.render(<ButtonApp />, document.getElementById('root'));
+
 
 
 //endregion
