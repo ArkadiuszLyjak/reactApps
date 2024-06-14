@@ -128,14 +128,15 @@
 //endregion
 
 //region przycisk
-const styled_button_css = "styled-button"; // Usunięto kropkę
+const styled_button_css = "styled-button";
 const button_text = "Dodaj literę";
 
 class ButtonApp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            text: ""
+            text: "",
+            number: 0 // Inicjalizacja stanu number
         };
     }
 
@@ -145,16 +146,44 @@ class ButtonApp extends React.Component {
         }));
     }
 
+    add_number = () => {
+        const random_number = Math.floor(Math.random() * 10);
+        this.setState(prevState => ({
+            number: prevState.number + random_number
+        }));
+    }
+
     render() {
         return (
             <>
-                <AddButton onClick={() => this.change_text('A')} css_class={styled_button_css} button_text={button_text} />
-                <AddButton onClick={() => this.change_text('B')} css_class={styled_button_css} button_text="Dodaj literę B" />
-                <AddButton onClick={() => this.change_text('C')} css_class={styled_button_css} button_text="Dodaj literę C" />
-                <p>{this.state.text}</p>
+                <AddButton onClick={() => this.change_text('A')} css_class={styled_button_css}
+                           button_text={button_text}/>
+                <AddButton onClick={this.add_number} css_class={styled_button_css}
+                           button_text="Dodaj numer"/>
+                <AddButton onClick={() => this.change_text('C')} css_class={styled_button_css}
+                           button_text="Dodaj literę C"/>
+
+                <PanelResultFunc number={this.state.number}>To jest komponent liczbowy</PanelResultFunc>
+                <PanelResultClass text={this.state.text}/>
             </>
         );
     }
+}
+
+class PanelResultClass extends React.Component {
+    render() {
+        return (
+            <h1>{this.props.text}</h1>
+        )
+    }
+}
+
+const PanelResultFunc = (props) => {
+    return (
+        <>
+            <h2>children: {props.children}, {props.number}</h2>
+        </>
+    )
 }
 
 const AddButton = (props) => {
@@ -163,8 +192,7 @@ const AddButton = (props) => {
     );
 }
 
-ReactDOM.render(<ButtonApp />, document.getElementById('root'));
-
+ReactDOM.render(<ButtonApp/>, document.getElementById('root'));
 
 
 //endregion
