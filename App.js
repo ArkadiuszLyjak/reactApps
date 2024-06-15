@@ -129,7 +129,7 @@
 
 //region przycisk
 const styled_button_css = "styled-button";
-const button_text = "Dodaj literę";
+const button_text = "Dodaj literkę";
 
 class ButtonApp extends React.Component {
     constructor(props) {
@@ -161,7 +161,7 @@ class ButtonApp extends React.Component {
                 <AddButton onClick={this.add_number} css_class={styled_button_css}
                            button_text="Dodaj numer"/>
                 <AddButton onClick={() => this.change_text('C')} css_class={styled_button_css}
-                           button_text="Dodaj literę C"/>
+                           button_text="Dodaj literkę C"/>
 
                 <PanelResultFunc number={this.state.number}>To jest komponent liczbowy</PanelResultFunc>
                 <PanelResultClass text={this.state.text}/>
