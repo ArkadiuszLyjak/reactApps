@@ -10,8 +10,8 @@
 
 .text-justify {
     text-align: justify;
-    /*text-transform: uppercase;*/
-    /*color: blue;*/
+    text-transform: uppercase;
+    color: #222222;
 
 }
 
@@ -37,19 +37,19 @@ th {
 }
 
 body {
-    /*background-color: bisque;*/
-    /*margin: 20px;*/
-    /*font-family: roboto, sans-serif;*/
-    /*font-size: 20px;*/
+    background-color: bisque;
+    margin: 20px;
+    font-family: roboto, sans-serif;
+    font-size: 20px;
     /*text-align: center;*/
     /*overflow: hidden;*/
 }
 
-/*h1 {*/
-/*    font-style: oblique;*/
-/*    color: blue;*/
-/*    text-transform: uppercase;*/
-/*}*/
+h1 {
+    font-style: normal;
+    color: blue;
+    text-transform: uppercase;
+}
 
 .title {
     font-family: arial;
@@ -57,12 +57,12 @@ body {
     font-size: 20px;
 }
 
-input[type="text"] {
-    padding: 10px 30px;
-    border: black 2px solid;
-    font-size: 30px;
-    outline: none;
-}
+/*input[type="text"] {*/
+/*    padding: 10px 30px;*/
+/*    border: black 2px solid;*/
+/*    font-size: 30px;*/
+/*    outline: none;*/
+/*}*/
 
 p.justified-uppercase {
     text-align: justify;
