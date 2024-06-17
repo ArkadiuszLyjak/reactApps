@@ -258,4 +258,58 @@
 //endregion
 
 
+//region znikajacy tekst
+const message_text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod' +
+    ' tempor incididunt ut labore et dolore magna aliqua. Massa massa ultricies mi quis hendrerit dolor ' +
+    'magna. Rhoncus est pellentesque elit ullamcorper dignissim cras. Arcu dictum varius duis at ' +
+    'consectetur. Commodo sed egestas egestas fringilla phasellus. Quisque id diam vel quam elementum.' +
+    ' Porttitor leo a diam sollicitudin tempor id. Sagittis eu volutpat odio facilisis mauris sit amet ' +
+    'massa. Ridiculus mus mauris vitae ultricies. Porttitor rhoncus dolor purus non enim praesent elementum.' +
+    ' Vel quam elementum pulvinar etiam non quam lacus suspendisse faucibus.';
+
+const message_header = 'Lorem Ipsum';
+
+class Message extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            message_is_active: false,
+        }
+        this.handle_message_button = this.handle_message_button.bind(this)
+    }
+
+    handle_message_button() {
+        this.setState(
+            {
+                message_is_active: !this.state.message_is_active
+            }
+        )
+
+    }
+
+    render() {
+        console.log(this.state.message_is_active)
+
+        return (
+            <>
+                <div>
+                    <p>{message_header}</p>
+                    <button className={'styled-button'} onClick={this.handle_message_button}>
+                        {this.state.message_is_active ? 'Ukryj' : 'Pokaż'}
+                    </button>
+                    
+                    <p className='text-justify'>{this.state.message_is_active && message_text}</p>
+
+                </div>
+
+
+            </>
+        )
+    }
+}
+
+ReactDOM.render(<Message/>, document.getElementById('root'));
+//endregion
+
 

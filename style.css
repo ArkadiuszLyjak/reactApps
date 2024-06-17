@@ -9,9 +9,9 @@
 }
 
 .text-justify {
+    color: darkorange;
     text-align: justify;
     text-transform: uppercase;
-    color: #222222;
 
 }
 
@@ -57,12 +57,12 @@ h1 {
     font-size: 20px;
 }
 
-/*input[type="text"] {*/
-/*    padding: 10px 30px;*/
-/*    border: black 2px solid;*/
-/*    font-size: 30px;*/
-/*    outline: none;*/
-/*}*/
+input[type="text"] {
+    padding: 10px 30px;
+    border: black 2px solid;
+    font-size: 30px;
+    outline: none;
+}
 
 p.justified-uppercase {
     text-align: justify;
@@ -70,10 +70,10 @@ p.justified-uppercase {
 }
 
 .styled-button {
-    font-size: 24px;
-    /*padding: 10px;*/
-    /*margin: 5px;*/
-    /*border: 2px solid darkred;*/
+    font-size: 18px;
+    padding: 10px;
+    margin: 5px;
+    border: 2px solid darkred;
 }
 
 #loading-text {
