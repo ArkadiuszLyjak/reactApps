@@ -2,49 +2,33 @@
 <html lang="pl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Komponenty w React - wprowadzenie</title>
-    <!-- Plik ze stylami css -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="footer.css">
-    <script type="text/babel" src="app.js"></script>
-
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Komponenty w React - wprowadzenie</title>
+	<!-- Plik ze stylami css -->
+	 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<!-- Element HTML pełniący rolę kontenera dla aplikacji React -->
-<div id="root">root</div>
-<hr class="thick-separator">
+	<!-- Element HTML pełniący rolę kontenera dla aplikacji React -->
+	<div id="root"></div>
+<!--	<div id="root_1">1</div>-->
+<!--	<div id="root_2">2</div>-->
+<!--	<div id="root_3">3</div>-->
+<!--	<div id="root_4">4</div>-->
+<!--	<div id="root_5">5</div>-->
+<!--	<div id="root_6">6</div>-->
+	<!-- Biblioteka React -->
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+	<!-- Biblioteka React DOM -->
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+	<!-- Babel - Nie korzystamy na produkcji (tylko podczas developmentu) -->
+	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-<div id="root_1">root_1</div>
-<hr class="thick-separator">
-
-<div id="root_2">root_2</div>
-<hr class="thick-separator">
-
-<div id="root_3">root_3</div>
-<hr class="thick-separator">
-
-<div id="root_4">root_4</div>
-<hr class="thick-separator">
-
-<div id="root_5">root_5</div>
-<hr class="thick-separator">
-
-<div id="root_6">root_6</div>
-<hr class="thick-separator">
-
-<!-- Biblioteka React -->
-<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-<!-- Biblioteka React DOM -->
-<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
-<!-- Babel - Nie korzystamy na produkcji (tylko podczas developmentu) -->
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-<!-- Nasz kod -->
-<script type="text/babel" src="app.js"></script>
+	<!-- Nasz kod -->
+	<script type="text/babel" src="app.js">
+	</script>
 </body>
 
 </html>
