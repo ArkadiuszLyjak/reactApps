@@ -258,57 +258,121 @@
 //endregion
 
 //region znikajacy tekst
-const message_text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod' +
-    ' tempor incididunt ut labore et dolore magna aliqua. Massa massa ultricies mi quis hendrerit dolor ' +
-    'magna. Rhoncus est pellentesque elit ullamcorper dignissim cras. Arcu dictum varius duis at ' +
-    'consectetur. Commodo sed egestas egestas fringilla phasellus. Quisque id diam vel quam elementum.' +
-    ' Porttitor leo a diam sollicitudin tempor id. Sagittis eu volutpat odio facilisis mauris sit amet ' +
-    'massa. Ridiculus mus mauris vitae ultricies. Porttitor rhoncus dolor purus non enim praesent elementum.' +
-    ' Vel quam elementum pulvinar etiam non quam lacus suspendisse faucibus.';
+// const message_text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod' +
+//     ' tempor incididunt ut labore et dolore magna aliqua. Massa massa ultricies mi quis hendrerit dolor ' +
+//     'magna. Rhoncus est pellentesque elit ullamcorper dignissim cras. Arcu dictum varius duis at ' +
+//     'consectetur. Commodo sed egestas egestas fringilla phasellus. Quisque id diam vel quam elementum.' +
+//     ' Porttitor leo a diam sollicitudin tempor id. Sagittis eu volutpat odio facilisis mauris sit amet ' +
+//     'massa. Ridiculus mus mauris vitae ultricies. Porttitor rhoncus dolor purus non enim praesent elementum.' +
+//     ' Vel quam elementum pulvinar etiam non quam lacus suspendisse faucibus.';
+//
+// const message_header = 'Lorem Ipsum';
+//
+// class Message extends React.Component {
+//     constructor(props) {
+//         super(props);
+//
+//         this.state = {
+//             message_is_active: false,
+//         }
+//         this.handle_message_button = this.handle_message_button.bind(this)
+//     }
+//
+//     handle_message_button() {
+//         this.setState(
+//             {
+//                 message_is_active: !this.state.message_is_active
+//             }
+//         )
+//
+//     }
+//
+//     render() {
+//         console.log(this.state.message_is_active)
+//
+//         return (
+//             <>
+//                 <div>
+//                     <p>{message_header}</p>
+//                     <button className={'styled-button'} onClick={this.handle_message_button}>
+//                         {this.state.message_is_active ? 'Ukryj' : 'Pokaż'}
+//                     </button>
+//
+//                     <p className='text-justify'>{this.state.message_is_active && message_text}</p>
+//
+//                 </div>
+//
+//
+//             </>
+//         )
+//     }
+// }
+//
+// ReactDOM.render(<Message/>, document.getElementById('root'));
+//endregion
 
-const message_header = 'Lorem Ipsum';
-
-class Message extends React.Component {
+//region zliczanie kliknięć
+class Counter extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
-            message_is_active: false,
+            overflow: 10,
+            click_counter: 0,
+            result: 0
         }
-        this.handle_message_button = this.handle_message_button.bind(this)
     }
 
-    handle_message_button() {
-        this.setState(
-            {
-                message_is_active: !this.state.message_is_active
-            }
-        )
-
+    handleMathClick(type, number) {
+        if (type === "subtraction") {
+            this.setState(prevState => ({
+                click_counter: prevState.click_counter + 1,
+                result: prevState.result - number
+            }))
+        } else if (type === "adding") {
+            this.setState(prevState => ({
+                click_counter: prevState.click_counter + 1,
+                result: prevState.result + number
+            }))
+        } else if (type === "reset") {
+            this.setState(prevState => ({
+                        click_counter: 0,
+                        result: 0
+                    }
+                )
+            )
+        }
     }
 
     render() {
-        console.log(this.state.message_is_active)
-
         return (
             <>
-                <div>
-                    <p>{message_header}</p>
-                    <button className={'styled-button'} onClick={this.handle_message_button}>
-                        {this.state.message_is_active ? 'Ukryj' : 'Pokaż'}
-                    </button>
-
-                    <p className='text-justify'>{this.state.message_is_active && message_text}</p>
-
-                </div>
-
-
+                <CreateButton onClick={() => this.handleMathClick("subtraction", 1)} button_name={"-1"}/>
+                <CreateButton onClick={() => this.handleMathClick("reset", 0)} button_name={"reset"}/>
+                <CreateButton onClick={() => this.handleMathClick("adding", 1)} button_name={"+1"}/>
+                <ResultPanel click_counter={this.state.click_counter} result={this.state.result}/>
             </>
         )
     }
+
 }
 
-ReactDOM.render(<Message/>, document.getElementById('root'));
+const ResultPanel = (props) => {
+    return (
+        <>
+            <h1>Liczba kliknięć: {props.click_counter} {props.click_counter > 10 ? <span>Przeciążenie!!</span>: null}</h1>
+            <h2>Rezultat: {props.result}</h2>
+        </>
+    )
+}
+
+const CreateButton = (props) => {
+    return (
+        <button onClick={props.onClick}>{props.button_name}</button>
+    )
+}
+
+const startValue = 0;
+ReactDOM.render(<Counter result={startValue}/>, document.getElementById('root'));
 //endregion
 
 
