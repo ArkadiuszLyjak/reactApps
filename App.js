@@ -312,67 +312,131 @@
 //endregion
 
 //region zliczanie kliknięć
-class Counter extends React.Component {
+// class Counter extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             overflow: 10,
+//             click_counter: 0,
+//             result: 0
+//         }
+//     }
+//
+//     handleMathClick(type, number) {
+//         if (type === "subtraction") {
+//             this.setState(prevState => ({
+//                 click_counter: prevState.click_counter + 1,
+//                 result: prevState.result - number
+//             }))
+//         } else if (type === "adding") {
+//             this.setState(prevState => ({
+//                 click_counter: prevState.click_counter + 1,
+//                 result: prevState.result + number
+//             }))
+//         } else if (type === "reset") {
+//             this.setState(prevState => ({
+//                         click_counter: 0,
+//                         result: 0
+//                     }
+//                 )
+//             )
+//         }
+//     }
+//
+//     render() {
+//         return (
+//             <>
+//                 <CreateButton onClick={() => this.handleMathClick("subtraction", 1)} button_name={"-1"}/>
+//                 <CreateButton onClick={() => this.handleMathClick("reset", 0)} button_name={"reset"}/>
+//                 <CreateButton onClick={() => this.handleMathClick("adding", 1)} button_name={"+1"}/>
+//                 <ResultPanel click_counter={this.state.click_counter} result={this.state.result}/>
+//             </>
+//         )
+//     }
+//
+// }
+//
+// const ResultPanel = (props) => {
+//     return (
+//         <>
+//             <h1>Liczba kliknięć: {props.click_counter} {props.click_counter > 10 ? <span>Przeciążenie!!</span>: null}</h1>
+//             <h2>Rezultat: {props.result}</h2>
+//         </>
+//     )
+// }
+//
+// const CreateButton = (props) => {
+//     return (
+//         <button onClick={props.onClick}>{props.button_name}</button>
+//     )
+// }
+//
+// const startValue = 0;
+// ReactDOM.render(<Counter result={startValue}/>, document.getElementById('root'));
+//endregion
+
+//region koszyk
+
+class App extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {
-            overflow: 10,
-            click_counter: 0,
-            result: 0
+            available_products: 5,
+            shopping_card_items: 0
         }
     }
 
-    handleMathClick(type, number) {
-        if (type === "subtraction") {
-            this.setState(prevState => ({
-                click_counter: prevState.click_counter + 1,
-                result: prevState.result - number
-            }))
-        } else if (type === "adding") {
-            this.setState(prevState => ({
-                click_counter: prevState.click_counter + 1,
-                result: prevState.result + number
-            }))
-        } else if (type === "reset") {
-            this.setState(prevState => ({
-                        click_counter: 0,
-                        result: 0
-                    }
-                )
-            )
-        }
+    handle_remove_from_cart = () => {
+        this.setState({
+            shopping_card_items: this.state.shopping_card_items - 1
+        })
+
+    }
+
+    handle_add_to_cart = () => {
+        this.setState(prevState => ({
+            shopping_card_items: prevState.shopping_card_items + 1
+        }));
+        console.log("kupione");
+    }
+
+    handle_buy = () => {
+        this.setState(prevState => ({
+            available_products: prevState.available_products - prevState.shopping_card_items,
+            shopping_card_items: 0 // Resetowanie koszyka po zakupie
+        }));
     }
 
     render() {
+        const style = this.state.shopping_card_items === 0 ? {opacity: 0.3} : {}
+        const {available_products, shopping_card_items} = this.state
+
         return (
-            <>
-                <CreateButton onClick={() => this.handleMathClick("subtraction", 1)} button_name={"-1"}/>
-                <CreateButton onClick={() => this.handleMathClick("reset", 0)} button_name={"reset"}/>
-                <CreateButton onClick={() => this.handleMathClick("adding", 1)} button_name={"+1"}/>
-                <ResultPanel click_counter={this.state.click_counter} result={this.state.result}/>
-            </>
+            <div>
+
+                <button
+                    disabled={shopping_card_items === 0 ? true : false}
+                    onClick={this.handle_remove_from_cart}>-
+                </button>
+
+                <span
+                    style={style}> {shopping_card_items} </span>
+
+                <button
+                    disabled={available_products === shopping_card_items ? true : false}
+                    onClick={this.handle_add_to_cart}>+
+                </button>
+
+                {shopping_card_items > 0 && <button onClick={this.handle_buy}>Kup</button>}
+
+
+            </div>
         )
     }
-
 }
 
-const ResultPanel = (props) => {
-    return (
-        <>
-            <h1>Liczba kliknięć: {props.click_counter} {props.click_counter > 10 ? <span>Przeciążenie!!</span>: null}</h1>
-            <h2>Rezultat: {props.result}</h2>
-        </>
-    )
-}
-
-const CreateButton = (props) => {
-    return (
-        <button onClick={props.onClick}>{props.button_name}</button>
-    )
-}
-
-const startValue = 0;
-ReactDOM.render(<Counter result={startValue}/>, document.getElementById('root'));
+ReactDOM.render(<App/>, document.getElementById('root'))
 //endregion
 
 
