@@ -376,67 +376,111 @@
 //endregion
 
 //region koszyk
+// class App extends React.Component {
+//
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             available_products: 5,
+//             shopping_card_items: 0
+//         }
+//     }
+//
+//     handle_remove_from_cart = () => {
+//         this.setState({
+//             shopping_card_items: this.state.shopping_card_items - 1
+//         })
+//
+//     }
+//
+//     handle_add_to_cart = () => {
+//         this.setState(prevState => ({
+//             shopping_card_items: prevState.shopping_card_items + 1
+//         }));
+//         console.log("kupione");
+//     }
+//
+//     handle_buy = () => {
+//         this.setState(prevState => ({
+//             available_products: prevState.available_products - prevState.shopping_card_items,
+//             shopping_card_items: 0 // Resetowanie koszyka po zakupie
+//         }));
+//     }
+//
+//     render() {
+//         const style = this.state.shopping_card_items === 0 ? {opacity: 0.3} : {}
+//         const {available_products, shopping_card_items} = this.state
+//
+//         return (
+//             <div>
+//
+//                 <button
+//                     disabled={shopping_card_items === 0 ? true : false}
+//                     onClick={this.handle_remove_from_cart}>-
+//                 </button>
+//
+//                 <span
+//                     style={style}> {shopping_card_items} </span>
+//
+//                 <button
+//                     disabled={available_products === shopping_card_items ? true : false}
+//                     onClick={this.handle_add_to_cart}>+
+//                 </button>
+//
+//                 {shopping_card_items > 0 && <button onClick={this.handle_buy}>Kup</button>}
+//
+//
+//             </div>
+//         )
+//     }
+// }
+//
+// ReactDOM.render(<App/>, document.getElementById('root'))
+//endregion
 
-class App extends React.Component {
+//region tablice
+const data = {
+    users: [{
+        id: 1,
+        age: 23,
+        name: "Marek"
+    }, {
+        id: 2,
+        age: 43,
+        name: "Darek"
+    }, {
+        id: 3,
+        age: 33,
+        name: "Czarek"
+    }]
+}
+const Item = (props) => {
+    return (
+        <>
+            <li>{`owoc: ${props.content} [id: ${props.ids}]`}</li>
+            <p>{`Wszystkie owoce: ${props.all_items.join(', ')}`}</p>
+        </>
+    )
+}
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            available_products: 5,
-            shopping_card_items: 0
-        }
-    }
-
-    handle_remove_from_cart = () => {
-        this.setState({
-            shopping_card_items: this.state.shopping_card_items - 1
-        })
-
-    }
-
-    handle_add_to_cart = () => {
-        this.setState(prevState => ({
-            shopping_card_items: prevState.shopping_card_items + 1
-        }));
-        console.log("kupione");
-    }
-
-    handle_buy = () => {
-        this.setState(prevState => ({
-            available_products: prevState.available_products - prevState.shopping_card_items,
-            shopping_card_items: 0 // Resetowanie koszyka po zakupie
-        }));
+class ListItems extends React.Component {
+    state = {
+        items: ["jabłko", "gruszka", "pomidor"]
     }
 
     render() {
-        const style = this.state.shopping_card_items === 0 ? {opacity: 0.3} : {}
-        const {available_products, shopping_card_items} = this.state
-
+        const users = this.props.data.users;
+        
         return (
-            <div>
-
-                <button
-                    disabled={shopping_card_items === 0 ? true : false}
-                    onClick={this.handle_remove_from_cart}>-
-                </button>
-
-                <span
-                    style={style}> {shopping_card_items} </span>
-
-                <button
-                    disabled={available_products === shopping_card_items ? true : false}
-                    onClick={this.handle_add_to_cart}>+
-                </button>
-
-                {shopping_card_items > 0 && <button onClick={this.handle_buy}>Kup</button>}
-
-
-            </div>
-        )
+            <>
+                <ul>
+                </ul>
+            </>
+        );
     }
 }
 
-ReactDOM.render(<App/>, document.getElementById('root'))
-//endregion
+ReactDOM.render(<ListItems data={data}/>, document.getElementById('root'));
 
+//endregion
 
