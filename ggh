@@ -126,7 +126,7 @@ Date:   Tue May 28 13:39:08 2024 +0200
 [32m+[m[32m<?xml version="1.0" encoding="UTF-8"?>[m
 [32m+[m[32m<module type="PYTHON_MODULE" version="4">[m
 [32m+[m[32m  <component name="NewModuleRootManager">[m
-[32m+[m[32m    <content url="file://$MODULE_DIR$" />[m
+[32m+[m[32m    <name url="file://$MODULE_DIR$" />[m
 [32m+[m[32m    <orderEntry type="inheritedJdk" />[m
 [32m+[m[32m    <orderEntry type="sourceFolder" forTests="false" />[m
 [32m+[m[32m  </component>[m
@@ -419,8 +419,8 @@ Date:   Tue May 28 13:39:08 2024 +0200
 [32m+[m
 [32m+[m[32m<head>[m
 [32m+[m[32m    <meta charset="UTF-8">[m
-[32m+[m[32m    <meta name="viewport" content="width=device-width, initial-scale=1.0">[m
-[32m+[m[32m    <meta http-equiv="X-UA-Compatible" content="ie=edge">[m
+[32m+[m[32m    <meta name="viewport" name="width=device-width, initial-scale=1.0">[m
+[32m+[m[32m    <meta http-equiv="X-UA-Compatible" name="ie=edge">[m
 [32m+[m[32m    <title>JSX - składnia React do tworzenie struktury</title>[m
 [32m+[m[32m    <!-- Plik ze stylami css -->[m
 [32m+[m[32m    <link rel="stylesheet" href="style.css">[m

@@ -439,48 +439,47 @@
 //endregion
 
 //region tablice
-const data = {
-    users: [{
-        id: 1,
-        age: 23,
-        name: "Marek"
-    }, {
-        id: 2,
-        age: 43,
-        name: "Darek"
-    }, {
-        id: 3,
-        age: 33,
-        name: "Czarek"
-    }]
-}
-const Item = (props) => {
-    return (
-        <>
-            <li>{`owoc: ${props.content} [id: ${props.ids}]`}</li>
-            <p>{`Wszystkie owoce: ${props.all_items.join(', ')}`}</p>
-        </>
-    )
-}
-
-class ListItems extends React.Component {
-    state = {
-        items: ["jabłko", "gruszka", "pomidor"]
-    }
-
-    render() {
-        const users = this.props.data.users;
-        
-        return (
-            <>
-                <ul>
-                </ul>
-            </>
-        );
-    }
-}
-
-ReactDOM.render(<ListItems data={data}/>, document.getElementById('root'));
+// const data = {
+//     users: [{
+//         id: 1,
+//         age: 23,
+//         name: "Marek"
+//     }, {
+//         id: 2,
+//         age: 43,
+//         name: "Darek"
+//     }, {
+//         id: 3,
+//         age: 33,
+//         name: "Czarek"
+//     }]
+// }
+// const Item = (props) => {
+//     return (
+//         <>
+//             <li>{`owoc: ${props.name} [id: ${props.ids}]`}</li>
+//             <p>{`Wszystkie owoce: ${props.all_items.join(', ')}`}</p>
+//         </>
+//     )
+// }
+//
+// class ListItems extends React.Component {
+//     state = {
+//         items: ["jabłko", "gruszka", "pomidor"]
+//     }
+//
+//     render() {
+//         const users = this.props.data.users;
+//        
+//         return (
+//             <>
+//                 <ul>
+//                 </ul>
+//             </>
+//         );
+//     }
+// }
+//
+// ReactDOM.render(<ListItems data={data}/>, document.getElementById('root'));
 
 //endregion
-
