@@ -19,8 +19,8 @@ class App extends React.Component {
 
     handleChangeStatus = (id) => {
         this.setState(prevState => ({
-            items: prevState.items.map(item => 
-                item.id === id ? { ...item, active: !item.active } : item
+            items: prevState.items.map(item =>
+                item.id === id ? {...item, active: !item.active} : item
             )
         }));
     }
@@ -29,11 +29,14 @@ class App extends React.Component {
         return (
             <React.Fragment>
                 <Header items={this.state.items}/>
-                
+
                 <ListItems
                     items={this.state.items}
                     activeItems={getActiveItems(this.state.items)}
                     changeStatus={this.handleChangeStatus}/>
+
+                <ActiveMenu items={this.state.items}/>
+
             </React.Fragment>
         )
     }
@@ -41,11 +44,11 @@ class App extends React.Component {
 
 const ListItems = (props) => {
     const items = props.items.map(item => (
-        <Item 
-            key={item.id} 
+        <Item
+            key={item.id}
             id={item.id}
-            name={item.name} 
-            active={item.active} 
+            name={item.name}
+            active={item.active}
             changeStatus={props.changeStatus}/>
     ))
 
@@ -62,7 +65,7 @@ const ListItems = (props) => {
 const Item = (props) => (
     <li>
         {props.name} [{props.active ? "aktywny" : "nieaktywny"}]
-        <button onClick={() => props.changeStatus(props.id)}>Kup</button>
+        <button onClick={() => props.changeStatus(props.id)}>{props.active ? "sell" : "buy"}</button>
     </li>
 )
 
@@ -84,8 +87,8 @@ const ActiveMenu = (props) => {
 const Header = (props) => {
     return (
         <React.Fragment>
-            <div>{<ActiveMenu items={props.items}/>}</div>
             <header>Liczba pozycji menu: {props.items.length}</header>
+            {/*<div>{<ActiveMenu items={props.items}/>}</div>*/}
         </React.Fragment>
     )
 }
