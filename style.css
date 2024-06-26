@@ -37,8 +37,9 @@ th {
 }
 
 body {
-    /*background-color: bisque;*/
+    background-color: bisque;
     margin: 20px;
+    padding: 20px;
     font-family: roboto, sans-serif;
     font-size: 20px;
     /*text-align: center;*/
@@ -49,6 +50,7 @@ h1 {
     font-style: normal;
     color: blue;
     text-transform: uppercase;
+    text-align: justify;
 }
 
 .title {
@@ -121,4 +123,14 @@ li:nth-child(even) {
 
 li:nth-child(odd) {
     background-color: #ccc;
+}
+
+del, ins {
+    display: block;
+    text-decoration: none;
+    position: relative;
+}
+
+del {
+    background-color: darkorange;
 }
